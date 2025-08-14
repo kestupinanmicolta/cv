@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Karen Estupiñán</title>
+  <meta name="description"
+    content="Hoja de vida de Karen Estupiñán: estudiante de Tecnología en Desarrollo de Software.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2f2f4;
+      --card: #ffffff;
+      --ink: #111111;
+      --muted: #444444;
+      --blue: #004aad;
+      --orange: #f15a24;
+      --ring: rgba(0, 74, 173, .15);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #e6f0ff, #f7f9fc);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  line-height: 1.6;
+}
+
+    a {
+      color: var(--blue);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px
+    }
+
+    header {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .profile-pic {
+      flex-shrink: 0;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .icon-linkedin {
+      width: 16px;
+      height: 16px;
+      fill: var(--blue);
+    }
+
+    .header-text {
+      flex: 1
+    }
+
+    .name {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--blue);
+      margin: 0
+    }
+
+    .role {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--orange);
+      margin-top: 4px;
+      font-weight: 600
+    }
+
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      /* Ahora cada dato en un renglón */
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      margin-top: 24px
+    }
+
+    @media (max-width: 860px) {
+      main {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 6px 24px var(--ring);
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 0 0 14px 0;
+      color: var(--blue);
+      font-weight: 700;
+      text-transform: uppercase
+    }
+
+    .section+.section {
+      margin-top: 18px
+    }
+
+    .pill {
+      display: inline-block;
+      background: #eef2ff;
+      color: var(--blue);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin: 6px 6px 0 0;
+    }
+
+    .summary {
+      color: var(--ink)
+    }
+
+    .summary b {
+      font-weight: 700
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .list {
+      display: grid;
+      gap: 14px
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 16px;
+      color: var(--orange);
+      font-weight: 600
+    }
+
+    .item .meta {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .grid-cols-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    @media (max-width:600px) {
+      .grid-cols-2 {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <img src="photo.jpeg" alt="Foto de Karen Estupiñán" class="profile-pic">
+      <div class="header-text">
+        <h1 class="name">KAREN ESTUPIÑÁN</h1>
+        <p class="role">Estudiante de tecnología de desarrollo de software</p>
+
+        <div class="contacts">
+          <span class="chip">📞 319 470 1032</span>
+          <a class="chip" href="mailto:kestupinanmicolta@gmail.com">✉️ kestupinanmicolta@gmail.com</a>
+          <a class="chip linkedin" href="https://www.linkedin.com/in/karen-paola-estupiñan-micolta-3ab59b37a"
+            target="_blank" rel="noopener">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+              class="icon-linkedin">
+            linkedin.com/in/karen-paola-estupiñan-micolta-3ab59b37a
+          </a>
+          <span class="chip">📍 Rionegro – Antioquia</span>
+        </div>
+      </div>
+    </header>
+
+
+    <main>
+      <!-- Columna izquierda -->
+      <section class="card">
+        <h2>Resumen</h2>
+        <p class="summary">
+          Estudiante de <b>Tecnología en Desarrollo de Software</b> (5.º semestre) con conocimientos en <b>programación
+            orientada a objetos</b>,
+          bases de datos y desarrollo web. Manejo de <b>Java</b>, control de versiones con <b>Git/GitHub</b> y
+          metodologías ágiles como <b>Scrum</b>.
+        </p>
+        <p class="summary">
+          Entusiasta de la <b>automatización de pruebas</b> utilizando <b>Serenity BDD</b>, aplicando patrones de diseño
+          <b>Screenplay</b> y <b>Page Object Model (POM)</b>.
+          Con nociones en el desarrollo de APIs con <b>Spring Boot</b>.
+        </p>
+        <p class="summary muted">
+          Apasionada por la tecnología, el aprendizaje continuo y la resolución de problemas, con capacidad para
+          colaborar en equipos
+          multidisciplinarios y adaptarse rápidamente a nuevos entornos. Interesada en iniciar mi experiencia
+          profesional contribuyendo
+          al desarrollo y calidad de soluciones tecnológicas innovadoras.
+        </p>
+      </section>
+
+      <!-- Columna derecha -->
+      <aside class="card">
+        <h2>Competencias</h2>
+        <div>
+          <span class="pill">Java</span>
+          <span class="pill">POO</span>
+          <span class="pill">Git & GitHub</span>
+          <span class="pill">Scrum</span>
+          <span class="pill">Serenity BDD</span>
+          <span class="pill">Screenplay</span>
+          <span class="pill">Page Object Model</span>
+          <span class="pill">Spring Boot (APIs)</span>
+          <span class="pill">HTML & CSS</span>
+          <span class="pill">SQL básico</span>
+        </div>
+      </aside>
+
+      <!-- Educación -->
+      <section class="card section">
+        <h2>Educación</h2>
+        <div class="list">
+          <div class="item">
+            <h3>2024 – Presente · Tecnología de desarrollo de software</h3>
+            <div class="meta">Corporación Universitaria Remington · Rionegro, Colombia</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lateral derecho inferior -->
+      <aside class="card section">
+        <h2>Cursos</h2>
+        <ul class="list">
+          <li class="item">
+            <h3>ISTQB® Certified Tester – Foundation Level (CTFL)</h3>
+            <div class="meta">En progreso</div>
+          </li>
+        </ul>
+      </aside>
+
+      <section class="card section">
+        <h2>Idiomas</h2>
+        <div class="grid-cols-2">
+          <div>
+            <div class="item">
+              <h3>Español</h3>
+              <div class="meta">Avanzado</div>
+            </div>
+          </div>
+          <div>
+            <div class="item">
+              <h3>Inglés</h3>
+              <div class="meta">Avanzado</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card section">
+        <h2>Enlaces</h2>
+        <div class="list">
+          <div class="item">
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/karen-paola-estupiñan-micolta-3ab59b37a" target="_blank"
+              rel="noopener">
+              linkedin.com/in/karen-paola-estupiñan-micolta-3ab59b37a
+            </a>
+          </div>
+          <div class="item">
+            <h3>Portafolio</h3>
+            <div class="meta">Disponible próximamente</div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+
+</html>
