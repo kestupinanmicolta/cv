@@ -4,250 +4,156 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Karen Estupiñán</title>
+  <title>Karen Estupiñán - CV</title>
   <meta name="description"
     content="Hoja de vida de Karen Estupiñán: estudiante de Tecnología en Desarrollo de Software.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="photo.jpeg" type="image/jpeg">
+  <!-- Iconos de Devicon y Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --bg: #f2f2f4;
-      --card: #ffffff;
-      --ink: #111111;
-      --muted: #444444;
       --blue: #004aad;
-      --orange: #f15a24;
-      --ring: rgba(0, 74, 173, .15);
+      --light: #f5f7fa;
+      --card: #ffffff;
+      --dark: #1a1a1a;
     }
-  
-    * {
-      box-sizing: border-box;
-    }
-  
-    html,
+
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #e6f0ff, #f7f9fc);
-      color: var(--ink);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-      line-height: 1.6;
+      background: var(--light);
+      color: #333;
+      transition: background 0.3s, color 0.3s;
     }
-  
-    a {
-      color: var(--blue);
-      text-decoration: none;
+
+    body.dark {
+      background: var(--dark);
+      color: #ddd;
     }
-  
-    a:hover {
-      text-decoration: underline;
-    }
-  
+
     .container {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
     }
-  
+
     header {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 28px;
       display: flex;
       align-items: center;
       gap: 20px;
+      margin-bottom: 20px;
     }
-  
+
     .profile-pic {
-      flex-shrink: 0;
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
+      border: 3px solid var(--blue);
+      animation: fadeIn 1s ease;
     }
-  
-    .icon-linkedin {
-      width: 16px;
-      height: 16px;
-      fill: var(--blue);
-    }
-  
-    .header-text {
-      flex: 1;
-    }
-  
-    .name {
-      font-size: clamp(28px, 3.5vw, 40px);
-      font-weight: 700;
-      color: var(--blue);
+
+    .header-text h1 {
       margin: 0;
+      font-size: 2rem;
+      color: var(--blue);
     }
-  
-    .role {
-      font-size: clamp(16px, 2.5vw, 20px);
-      color: var(--orange);
-      margin-top: 4px;
-      font-weight: 600;
+
+    .header-text p {
+      margin: 4px 0 12px;
+      font-weight: 500;
     }
-  
-    .contacts {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 14px;
-      font-size: 14px;
-    }
-  
+
     .chip {
-      display: inline-flex;
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 4px 6px;
+      background: #e0e7ff;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.3s;
+    }
+
+    .chip:hover {
+      background: #c7d2fe;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 18px;
+      background: var(--blue);
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background: #003080;
+    }
+
+    section {
+      background: var(--card);
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark section {
+      background: #2a2a2a;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--blue);
+    }
+
+    .competencias-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .competencias-list span {
+      display: flex;
       align-items: center;
       gap: 6px;
-      color: var(--muted);
-    }
-  
-    main {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      margin-top: 24px;
-    }
-  
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 22px;
-      box-shadow: 0 6px 24px var(--ring);
-    }
-  
-    h2 {
-      font-size: 20px;
-      margin: 0 0 14px 0;
-      color: var(--blue);
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-  
-    .section + .section {
-      margin-top: 18px;
-    }
-  
-    .pill {
-      display: inline-block;
       background: #eef2ff;
-      color: var(--blue);
       padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      margin: 6px 6px 0 0;
+      border-radius: 8px;
+      font-size: 0.9rem;
     }
-  
-    .summary {
-      color: var(--ink);
+
+    .timeline {
+      border-left: 3px solid var(--blue);
+      padding-left: 12px;
+      margin-left: 8px;
     }
-  
-    .summary b {
-      font-weight: 700;
+
+    .timeline p {
+      margin: 8px 0;
     }
-  
-    .muted {
-      color: var(--muted);
-    }
-  
-    .list {
-      display: grid;
-      gap: 14px;
-    }
-  
-    .item h3 {
-      margin: 0;
-      font-size: 16px;
-      color: var(--orange);
-      font-weight: 600;
-    }
-  
-    .item .meta {
-      font-size: 13px;
-      color: var(--muted);
-    }
-  
-    .grid-cols-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-  
-    /* Responsive ajustes */
-    @media (max-width: 860px) {
-      main {
-        grid-template-columns: 1fr;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
       }
-    }
-  
-    @media (max-width: 600px) {
-      .grid-cols-2 {
-        grid-template-columns: 1fr;
-      }
-    }
-  
-    @media (max-width: 480px) {
-      .container {
-        margin: 20px auto;
-        padding: 0 14px;
-      }
-  
-      header {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-      }
-  
-      .profile-pic {
-        width: 90px;
-        height: 90px;
-      }
-  
-      .contacts {
-        align-items: center;
-      }
-  
-      .header-text {
-        width: 100%;
-      }
-  
-      main {
-        margin-top: 16px;
-        gap: 16px;
-      }
-  
-      .card {
-        padding: 18px;
-      }
-  
-      h2 {
-        font-size: 18px;
-      }
-  
-      .pill {
-        font-size: 12px;
-        padding: 5px 8px;
-      }
-  
-      .item h3 {
-        font-size: 15px;
-      }
-  
-      .item .meta {
-        font-size: 12px;
-      }
-  
-      .icon-linkedin {
-        width: 14px;
-        height: 14px;
+
+      to {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   </style>
-  
 </head>
 
 <body>
@@ -255,120 +161,74 @@
     <header>
       <img src="photo.jpeg" alt="Foto de Karen Estupiñán" class="profile-pic">
       <div class="header-text">
-        <h1 class="name">KAREN ESTUPIÑÁN</h1>
-        <p class="role">Estudiante de tecnología de desarrollo de software</p>
-
+        <h1>KAREN ESTUPIÑÁN</h1>
+        <p>Estudiante de Tecnología en Desarrollo de Software</p>
         <div class="contacts">
-          <span class="chip">📞 319 470 1032</span>
+          <span class="chip">📞 3194701032</span>
           <a class="chip" href="mailto:kestupinanmicolta@gmail.com">✉️ kestupinanmicolta@gmail.com</a>
-          <a class="chip linkedin" href="https://www.linkedin.com/in/karen-paola-estupiñan-micolta-3ab59b37a"
-            target="_blank" rel="noopener">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
-              class="icon-linkedin">
-            linkedin.com/in/karen-paola-estupiñan-micolta-3ab59b37a
-          </a>
-          <span class="chip">📍 Rionegro – Antioquia</span>
+          <a class="chip" href="https://www.linkedin.com/in/karen-paola-estupiñan-micolta-3ab59b37a" target="_blank">🔗
+            LinkedIn</a>
         </div>
+        <a href="KarenEstupinanResume.pdf" download class="download-btn">⬇️ Descargar CV</a>
+        <button onclick="document.body.classList.toggle('dark')" class="chip">🌓 Modo oscuro</button>
       </div>
     </header>
 
+    <section>
+      <h2>Resumen</h2>
+      <p>
+        Estudiante de Tecnología en Desarrollo de Software (5.º semestre) con conocimientos en programación orientada a
+        objetos, bases de datos y desarrollo web. Manejo de Java, control de versiones con Git/GitHub y metodologías
+        ágiles como Scrum.
+      </p>
+      <p>
+        Entusiasta de la automatización de pruebas utilizando Serenity BDD, aplicando patrones de diseño Screenplay y
+        Page Object Model (POM). Con nociones en el desarrollo de APIs con Spring Boot.
+      </p>
+      <p>
+        Apasionada por la tecnología, el aprendizaje continuo y la resolución de problemas, con capacidad para colaborar
+        en equipos multidisciplinarios y adaptarse rápidamente a nuevos entornos. Interesada en iniciar mi experiencia
+        profesional contribuyendo al desarrollo y calidad de soluciones tecnológicas innovadoras.
+      </p>
+    </section>
 
-    <main>
-      <!-- Columna izquierda -->
-      <section class="card">
-        <h2>Resumen</h2>
-        <p class="summary">
-          Estudiante de <b>Tecnología en Desarrollo de Software</b> (5.º semestre) con conocimientos en <b>programación
-            orientada a objetos</b>,
-          bases de datos y desarrollo web. Manejo de <b>Java</b>, control de versiones con <b>Git/GitHub</b> y
-          metodologías ágiles como <b>Scrum</b>.
-        </p>
-        <p class="summary">
-          Entusiasta de la <b>automatización de pruebas</b> utilizando <b>Serenity BDD</b>, aplicando patrones de diseño
-          <b>Screenplay</b> y <b>Page Object Model (POM)</b>.
-          Con nociones en el desarrollo de APIs con <b>Spring Boot</b>.
-        </p>
-        <p class="summary muted">
-          Apasionada por la tecnología, el aprendizaje continuo y la resolución de problemas, con capacidad para
-          colaborar en equipos
-          multidisciplinarios y adaptarse rápidamente a nuevos entornos. Interesada en iniciar mi experiencia
-          profesional contribuyendo
-          al desarrollo y calidad de soluciones tecnológicas innovadoras.
-        </p>
-      </section>
+    <section>
+      <h2>Competencias</h2>
+      <div class="competencias-list">
+        <span><i class="devicon-java-plain colored"></i> Java POO</span>
+        <span><i class="devicon-git-plain colored"></i> Git & GitHub</span>
+        <span><i class="fas fa-users"></i> Scrum</span>
+        <span><i class="fas fa-vial"></i> Serenity BDD</span>
+        <span><i class="fas fa-layer-group"></i> Screenplay</span>
+        <span><i class="fas fa-code"></i> Page Object Model</span>
+        <span><i class="devicon-spring-plain colored"></i> Spring Boot (APIs)</span>
+        <span><i class="devicon-html5-plain colored"></i> HTML & CSS</span>
+        <span><i class="fas fa-database"></i> SQL básico</span>
+      </div>
+    </section>
 
-      <!-- Columna derecha -->
-      <aside class="card">
-        <h2>Competencias</h2>
-        <div>
-          <span class="pill">Java</span>
-          <span class="pill">POO</span>
-          <span class="pill">Git & GitHub</span>
-          <span class="pill">Scrum</span>
-          <span class="pill">Serenity BDD</span>
-          <span class="pill">Screenplay</span>
-          <span class="pill">Page Object Model</span>
-          <span class="pill">Spring Boot (APIs)</span>
-          <span class="pill">HTML & CSS</span>
-          <span class="pill">SQL básico</span>
-        </div>
-      </aside>
+    <section>
+      <h2>Educación</h2>
+      <div class="timeline">
+        <p><b>Tecnología en Desarrollo de Software</b><br>
+          Corporación Universitaria Remington<br>
+          2024 - Actualidad</p>
+      </div>
+    </section>
 
-      <!-- Educación -->
-      <section class="card section">
-        <h2>Educación</h2>
-        <div class="list">
-          <div class="item">
-            <h3>2024 – Presente · Tecnología de desarrollo de software</h3>
-            <div class="meta">Corporación Universitaria Remington · Rionegro, Colombia</div>
-          </div>
-        </div>
-      </section>
+    <section>
+      <h2>Cursos</h2>
+      <ul>
+        <li>ISTQB® Certified Tester – Foundation Level (CTFL)</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Proyectos</h2>
+      <a class="chip" href="https://github.com/kestupinanmicolta" target="_blank">
+        💻 GitHub - kestupinanmicolta
+      </a>
+    </section>
 
-      <!-- Lateral derecho inferior -->
-      <aside class="card section">
-        <h2>Cursos</h2>
-        <ul class="list">
-          <li class="item">
-            <h3>ISTQB® Certified Tester – Foundation Level (CTFL)</h3>
-            <div class="meta"></div>
-          </li>
-        </ul>
-      </aside>
-
-      <section class="card section">
-        <h2>Idiomas</h2>
-        <div class="grid-cols-2">
-          <div>
-            <div class="item">
-              <h3>Español</h3>
-              <div class="meta">Avanzado</div>
-            </div>
-          </div>
-          <div>
-            <div class="item">
-              <h3>Inglés</h3>
-              <div class="meta">Avanzado</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <aside class="card section">
-        <h2>Enlaces de interés</h2>
-        <div class="list">
-          <div class="item">
-            <h3>Portafolio</h3>
-            <div class="meta">
-              <a href="https://github.com/kestupinanmicolta" target="_blank">
-                https://github.com/kestupinanmicolta
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </aside>
-    </main>
   </div>
 </body>
 
