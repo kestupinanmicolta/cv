@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karen Paola Estupinan Micolta - QA Tester</title>
+  <title>Karen Paola Estupinan Micolta - CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,22 +11,66 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f1f5f9;
-      color: #1e293b;
-      line-height: 1.5;
-    }
+    body { font-family: 'Inter', sans-serif; background: #f1f5f9; color: #1e293b; }
 
-    .cv-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    /* NAV */
+    .nav {
+      background: #0f172a;
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+    .nav-brand {
+      color: white;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-right: 1rem;
+    }
+    .nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav a:hover, .nav a.active { background: rgba(59,130,246,0.2); color: #60a5fa; }
+    .nav-right {
+      margin-left: auto;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .nav-btn {
+      background: #3b82f6;
+      color: white !important;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.72rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .nav-btn:hover { background: #2563eb; }
+    .nav-btn-outline {
+      background: transparent;
+      border: 1px solid #334155;
+      color: #cbd5e1 !important;
+    }
+    .nav-btn-outline:hover { background: #1e293b; }
 
-    /* Header */
+    /* CV */
+    .cv-wrap { max-width: 900px; margin: 2rem auto; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
     .header {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
       color: white;
@@ -37,553 +81,331 @@
       flex-wrap: wrap;
       gap: 1.5rem;
     }
-
-    .header-left h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 0.3rem;
-      letter-spacing: -0.5px;
-    }
-
-    .header-left .role {
-      font-size: 1rem;
-      color: #60a5fa;
-      font-weight: 500;
-    }
-
-    .header-right {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-    }
-
-    .header-right a {
-      color: #cbd5e1;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .header-right a:hover { color: white; }
+    .header-left h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .header-left .role { font-size: 1rem; color: #60a5fa; font-weight: 500; }
+    .header-right { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.85rem; }
+    .header-right a, .header-right span { color: #cbd5e1; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
     .header-right i { width: 16px; color: #60a5fa; }
 
-    /* Main Grid */
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-    }
-
+    .main-grid { display: grid; grid-template-columns: 1fr 320px; }
     .left-col { padding: 2rem; }
     .right-col { padding: 2rem; background: #f8fafc; border-left: 1px solid #e2e8f0; }
 
-    /* Section */
     .section { margin-bottom: 1.5rem; }
-
     .section-title {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #3b82f6;
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 2px solid #3b82f6;
-      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      color: #3b82f6; margin-bottom: 0.75rem; padding-bottom: 0.4rem;
+      border-bottom: 2px solid #3b82f6; display: inline-block;
     }
+    .profile { font-size: 0.83rem; color: #475569; text-align: justify; }
 
-    /* Profile */
-    .profile {
-      font-size: 0.85rem;
-      color: #475569;
-      text-align: justify;
-    }
+    .tl { margin-bottom: 1rem; padding-left: 1rem; border-left: 2px solid #e2e8f0; }
+    .tl:last-child { margin-bottom: 0; }
+    .tl-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.3rem; }
+    .tl-title { font-weight: 700; font-size: 0.88rem; color: #0f172a; }
+    .tl-date { font-size: 0.68rem; font-weight: 600; color: #3b82f6; background: rgba(59,130,246,0.1); padding: 0.15rem 0.5rem; border-radius: 9999px; }
+    .tl-loc { font-size: 0.73rem; color: #64748b; margin-bottom: 0.3rem; }
+    .tl-desc { font-size: 0.78rem; color: #475569; padding-left: 1rem; }
+    .tl-desc li { margin-bottom: 0.25rem; }
+    .badge { display: inline-block; background: #10b981; color: white; font-size: 0.58rem; padding: 0.1rem 0.4rem; border-radius: 9999px; margin-left: 0.3rem; font-weight: 600; }
 
-    /* Timeline */
-    .timeline-item {
-      margin-bottom: 1rem;
-      padding-left: 1rem;
-      border-left: 2px solid #e2e8f0;
-    }
-
-    .timeline-item:last-child { margin-bottom: 0; }
-
-    .timeline-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-    }
-
-    .timeline-title {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #0f172a;
-    }
-
-    .timeline-date {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #3b82f6;
-      background: rgba(59, 130, 246, 0.1);
-      padding: 0.15rem 0.5rem;
-      border-radius: 9999px;
-    }
-
-    .timeline-location {
-      font-size: 0.75rem;
-      color: #64748b;
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline-desc {
-      font-size: 0.8rem;
-      color: #475569;
-      padding-left: 1rem;
-    }
-
-    .timeline-desc li {
-      margin-bottom: 0.25rem;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #10b981;
-      color: white;
-      font-size: 0.6rem;
-      padding: 0.1rem 0.4rem;
-      border-radius: 9999px;
-      margin-left: 0.3rem;
-      font-weight: 600;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.35rem; }
     .skill-tag {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 0.3rem 0.6rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #1e293b;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
+      background: white; border: 1px solid #e2e8f0; border-radius: 6px;
+      padding: 0.25rem 0.5rem; font-size: 0.72rem; font-weight: 500; color: #1e293b;
+      display: inline-flex; align-items: center; gap: 0.3rem;
     }
+    .skill-tag i { font-size: 0.68rem; color: #3b82f6; }
 
-    .skill-tag i {
-      font-size: 0.7rem;
-      color: #3b82f6;
+    .cert-item { margin-bottom: 0.75rem; }
+    .cert-name { font-weight: 700; font-size: 0.83rem; color: #0f172a; }
+    .cert-desc { font-size: 0.73rem; color: #64748b; }
+    .cert-link { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.68rem; color: #3b82f6; text-decoration: none; margin-top: 0.2rem; }
+
+    .port-item {
+      background: white; border: 1px solid #e2e8f0; border-radius: 8px;
+      padding: 0.6rem 0.75rem; margin-bottom: 0.4rem; text-decoration: none; color: inherit;
+      display: block; transition: all 0.2s;
     }
+    .port-item:hover { border-color: #3b82f6; box-shadow: 0 2px 8px rgba(59,130,246,0.1); }
+    .port-name { font-weight: 700; font-size: 0.78rem; color: #0f172a; }
+    .port-tech { font-size: 0.68rem; color: #64748b; }
+    .port-tags { display: flex; gap: 0.2rem; margin-top: 0.3rem; }
+    .port-tag { font-size: 0.58rem; font-weight: 600; padding: 0.12rem 0.35rem; border-radius: 4px; background: rgba(59,130,246,0.1); color: #3b82f6; }
 
-    /* Portfolio */
-    .portfolio-item {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 0.75rem;
-      margin-bottom: 0.5rem;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: all 0.2s;
-    }
+    .avail-grid { display: flex; flex-direction: column; gap: 0.35rem; }
+    .avail-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: #1e293b; }
+    .avail-item i { color: #10b981; font-size: 0.68rem; }
 
-    .portfolio-item:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
-    }
+    .footer { text-align: center; padding: 1rem; font-size: 0.68rem; color: #94a3b8; background: #f8fafc; border-top: 1px solid #e2e8f0; }
 
-    .portfolio-name {
-      font-weight: 700;
-      font-size: 0.8rem;
-      color: #0f172a;
-      margin-bottom: 0.2rem;
-    }
-
-    .portfolio-tech {
-      font-size: 0.7rem;
-      color: #64748b;
-    }
-
-    .portfolio-tags {
-      display: flex;
-      gap: 0.25rem;
-      margin-top: 0.4rem;
-    }
-
-    .portfolio-tag {
-      font-size: 0.6rem;
-      font-weight: 600;
-      padding: 0.15rem 0.4rem;
-      border-radius: 4px;
-      background: rgba(59, 130, 246, 0.1);
-      color: #3b82f6;
-    }
-
-    /* Certifications */
-    .cert-item {
-      margin-bottom: 0.75rem;
-    }
-
-    .cert-name {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0f172a;
-    }
-
-    .cert-desc {
-      font-size: 0.75rem;
-      color: #64748b;
-    }
-
-    .cert-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.7rem;
-      color: #3b82f6;
-      text-decoration: none;
-      margin-top: 0.2rem;
-    }
-
-    .cert-link:hover { text-decoration: underline; }
-
-    /* Availability */
-    .avail-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .avail-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      color: #1e293b;
-    }
-
-    .avail-item i {
-      color: #10b981;
-      font-size: 0.7rem;
-    }
-
-    /* Buttons */
-    .btn-group {
-      display: flex;
-      gap: 0.75rem;
-      padding: 1.5rem 2rem;
-      background: #f8fafc;
-      border-top: 1px solid #e2e8f0;
-      justify-content: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #0f172a;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-
-    .btn:hover { background: #1e293b; transform: translateY(-1px); }
-    .btn-outline { background: white; color: #0f172a; border: 1px solid #e2e8f0; }
-    .btn-outline:hover { background: #f8fafc; }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.7rem;
-      color: #94a3b8;
-      background: #f8fafc;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
       .main-grid { grid-template-columns: 1fr; }
       .right-col { border-left: none; border-top: 1px solid #e2e8f0; }
       .header { flex-direction: column; }
+      .nav { padding: 0.5rem 1rem; }
     }
-
-    /* Print */
     @media print {
+      .nav { display: none !important; }
       body { background: white; }
-      .cv-container { box-shadow: none; }
-      .btn-group { display: none; }
+      .cv-wrap { box-shadow: none; margin: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="cv-container" id="cv">
-    <!-- Header -->
-    <header class="header">
-      <div class="header-left">
-        <h1>Karen Paola Estupinan Micolta</h1>
-        <div class="role">QA Tester & Software Developer</div>
+
+<!-- NAV MENU -->
+<nav class="nav">
+  <span class="nav-brand">KP Estupinan</span>
+  <a href="#perfil">Perfil</a>
+  <a href="#experiencia">Experiencia</a>
+  <a href="#educacion">Educación</a>
+  <a href="#habilidades">Habilidades</a>
+  <a href="#ia">IA</a>
+  <a href="#portafolio">Portafolio</a>
+  <a href="#certificaciones">Certificaciones</a>
+  <a href="#disponibilidad">Disponibilidad</a>
+  <div class="nav-right">
+    <button class="nav-btn" id="exportPdf"><i class="fas fa-file-pdf"></i> PDF</button>
+    <a href="https://github.com/kestupinanmicolta" target="_blank" class="nav-btn nav-btn-outline"><i class="fab fa-github"></i> GitHub</a>
+  </div>
+</nav>
+
+<!-- CV CONTENT -->
+<div class="cv-wrap" id="cv">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <h1>Karen Paola Estupinan Micolta</h1>
+      <div class="role">QA Tester & Software Developer</div>
+    </div>
+    <div class="header-right">
+      <a href="mailto:kestupinanmicolta@gmail.com"><i class="fas fa-envelope"></i> kestupinanmicolta@gmail.com</a>
+      <a href="tel:3194701032"><i class="fas fa-phone"></i> 3194701032</a>
+      <span><i class="fas fa-map-marker-alt"></i> Rionegro, Antioquia</span>
+      <a href="https://linkedin.com/in/karen-paola-estupinan-micolta" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/kestupinanmicolta" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+  </header>
+
+  <div class="main-grid">
+    <!-- LEFT -->
+    <div class="left-col">
+
+      <!-- PERFIL -->
+      <div class="section" id="perfil">
+        <div class="section-title">Sobre Mí</div>
+        <p class="profile">
+          Profesional con formación en Agronomía y Tecnología en Desarrollo de Software, especializada en QA Testing y automatización de pruebas. Certificada ISTQB® con experiencia en desarrollo de aplicaciones web y móviles, elaboración de planes de prueba y automatización con herramientas como Selenium, Playwright, Appium y frameworks BDD. Apasionada por la calidad de software, la inteligencia artificial y el aprendizaje continuo.
+        </p>
       </div>
-      <div class="header-right">
-        <a href="mailto:kestupinanmicolta@gmail.com"><i class="fas fa-envelope"></i> kestupinanmicolta@gmail.com</a>
-        <a href="tel:3194701032"><i class="fas fa-phone"></i> 3194701032</a>
-        <span><i class="fas fa-map-marker-alt"></i> Rionegro, Antioquia</span>
-        <a href="https://linkedin.com/in/karen-paola-estupinan-micolta" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/kestupinanmicolta" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-    </header>
 
-    <!-- Main Content -->
-    <div class="main-grid">
-      <!-- Left Column -->
-      <div class="left-col">
-        <!-- About -->
-        <div class="section">
-          <div class="section-title">Sobre Mí</div>
-          <p class="profile">
-            Profesional con formación en Agronomía y Tecnología en Desarrollo de Software, especializada en QA Testing y automatización de pruebas. Certificada ISTQB® con experiencia en desarrollo de aplicaciones web y móviles, elaboración de planes de prueba y automatización con herramientas como Selenium, Playwright, Appium y frameworks BDD. Apasionada por la calidad de software, la inteligencia artificial y el aprendizaje continuo.
-          </p>
+      <!-- EXPERIENCIA -->
+      <div class="section" id="experiencia">
+        <div class="section-title">Experiencia Laboral</div>
+        <div class="tl">
+          <div class="tl-head"><span class="tl-title">Ingeniera Agrónoma</span><span class="tl-date">Ago 2023 - May 2026</span></div>
+          <div class="tl-loc">Uniflor / Rionegro, Antioquia</div>
+          <ul class="tl-desc">
+            <li>Planeación y ejecución de proyectos agrícolas con enfoque en datos</li>
+            <li>Implementación de herramientas de análisis de datos para optimización</li>
+            <li>Liderazgo de equipos técnicos y coordinación de actividades</li>
+          </ul>
         </div>
-
-        <!-- Experience -->
-        <div class="section">
-          <div class="section-title">Experiencia Laboral</div>
-          
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <span class="timeline-title">Ingeniera Agrónoma</span>
-              <span class="timeline-date">Ago 2023 - May 2026</span>
-            </div>
-            <div class="timeline-location">Uniflor / Rionegro, Antioquia</div>
-            <ul class="timeline-desc">
-              <li>Planeación y ejecución de proyectos agrícolas con enfoque en datos</li>
-              <li>Implementación de herramientas de análisis de datos para optimización</li>
-              <li>Liderazgo de equipos técnicos y coordinación de actividades</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <span class="timeline-title">Asistente Administrativa</span>
-              <span class="timeline-date">Ago 2015 - Jul 2016</span>
-            </div>
-            <div class="timeline-location">Registraduría Nacional / Tumaco, Nariño</div>
-            <ul class="timeline-desc">
-              <li>Gestión documental integral y control de información</li>
-              <li>Atención al ciudadano y apoyo en procesos administrativos</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div class="section">
-          <div class="section-title">Educación</div>
-          
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <span class="timeline-title">Tecnología en Desarrollo de Software</span>
-              <span class="timeline-date">2023 - Actualidad</span>
-            </div>
-            <div class="timeline-location">Uniremington / Rionegro, Antioquia</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <span class="timeline-title">Ingeniera Agrónoma <span class="badge">Honores</span></span>
-              <span class="timeline-date">2016 - 2021</span>
-            </div>
-            <div class="timeline-location">Universidad de Nariño / Pasto, Nariño</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <span class="timeline-title">Asistente Administrativa</span>
-              <span class="timeline-date">2013 - 2015</span>
-            </div>
-            <div class="timeline-location">SENA / Tumaco, Nariño</div>
-          </div>
-        </div>
-
-        <!-- AI Section -->
-        <div class="section">
-          <div class="section-title">Inteligencia Artificial</div>
-          <div class="skills-grid" style="margin-bottom: 0.75rem;">
-            <span class="skill-tag"><i class="fas fa-brain"></i> IA y ML</span>
-            <span class="skill-tag"><i class="fas fa-language"></i> LLM</span>
-            <span class="skill-tag"><i class="fas fa-terminal"></i> Prompt Engineering</span>
-            <span class="skill-tag"><i class="fas fa-plug"></i> APIs de IA</span>
-            <span class="skill-tag"><i class="fab fa-java"></i> IA en Java</span>
-            <span class="skill-tag"><i class="fas fa-database"></i> RAG</span>
-            <span class="skill-tag"><i class="fas fa-code"></i> Copilot</span>
-          </div>
-          <ul class="timeline-desc">
-            <li>Integración de APIs de OpenAI en aplicaciones Java/Spring Boot</li>
-            <li>Implementación de patrones RAG para búsqueda semántica</li>
-            <li>Uso de GitHub Copilot para desarrollo ágil</li>
+        <div class="tl">
+          <div class="tl-head"><span class="tl-title">Asistente Administrativa</span><span class="tl-date">Ago 2015 - Jul 2016</span></div>
+          <div class="tl-loc">Registraduría Nacional / Tumaco, Nariño</div>
+          <ul class="tl-desc">
+            <li>Gestión documental integral y control de información</li>
+            <li>Atención al ciudadano y apoyo en procesos administrativos</li>
           </ul>
         </div>
       </div>
 
-      <!-- Right Column -->
-      <div class="right-col">
-        <!-- Skills -->
-        <div class="section">
-          <div class="section-title">Habilidades Técnicas</div>
-          <div class="skills-grid">
-            <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
-            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-            <span class="skill-tag"><i class="fab fa-node-js"></i> TypeScript</span>
-            <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
-            <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
-            <span class="skill-tag"><i class="fas fa-check-double"></i> Selenium</span>
-            <span class="skill-tag"><i class="fas fa-theater-masks"></i> Playwright</span>
-            <span class="skill-tag"><i class="fas fa-circle"></i> Cypress</span>
-            <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Appium</span>
-            <span class="skill-tag"><i class="fas fa-cucumber"></i> Cucumber</span>
-            <span class="skill-tag"><i class="fas fa-chalkboard"></i> Serenity</span>
-            <span class="skill-tag"><i class="fas fa-bolt"></i> Karate</span>
-            <span class="skill-tag"><i class="fas fa-plug"></i> REST Assured</span>
-            <span class="skill-tag"><i class="fas fa-tachometer-alt"></i> JMeter</span>
-            <span class="skill-tag"><i class="fas fa-chart-line"></i> k6</span>
-            <span class="skill-tag"><i class="fab fa-github"></i> Actions</span>
-          </div>
+      <!-- EDUCACION -->
+      <div class="section" id="educacion">
+        <div class="section-title">Educación</div>
+        <div class="tl">
+          <div class="tl-head"><span class="tl-title">Tecnología en Desarrollo de Software</span><span class="tl-date">2023 - Actualidad</span></div>
+          <div class="tl-loc">Uniremington / Rionegro, Antioquia</div>
         </div>
-
-        <!-- Certifications -->
-        <div class="section">
-          <div class="section-title">Certificaciones</div>
-          <div class="cert-item">
-            <div class="cert-name">ISTQB® Certified Tester</div>
-            <div class="cert-desc">Fundamentos de pruebas de software</div>
-            <a href="https://www.credly.com/users/karen-paola-estupinan-micolta" target="_blank" class="cert-link">
-              <i class="fas fa-external-link-alt"></i> Ver credencial
-            </a>
-          </div>
-          <div class="cert-item">
-            <div class="cert-name">Diplomado en Pruebas de Software</div>
-            <div class="cert-desc">Calidad y automatización</div>
-          </div>
+        <div class="tl">
+          <div class="tl-head"><span class="tl-title">Ingeniera Agrónoma <span class="badge">Honores</span></span><span class="tl-date">2016 - 2021</span></div>
+          <div class="tl-loc">Universidad de Nariño / Pasto, Nariño</div>
         </div>
-
-        <!-- Portfolio -->
-        <div class="section">
-          <div class="section-title">Portafolio QA</div>
-          <a href="https://github.com/kestupinanmicolta/karate-api-testing" target="_blank" class="portfolio-item">
-            <div class="portfolio-name">Karate API Testing</div>
-            <div class="portfolio-tech">Java + Karate + JUnit 5</div>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">API</span>
-              <span class="portfolio-tag">BDD</span>
-            </div>
-          </a>
-          <a href="https://github.com/kestupinanmicolta/playwright-ecommerce" target="_blank" class="portfolio-item">
-            <div class="portfolio-name">Playwright E2E</div>
-            <div class="portfolio-tech">TypeScript + Playwright</div>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">UI</span>
-              <span class="portfolio-tag">Visual</span>
-            </div>
-          </a>
-          <a href="https://github.com/kestupinanmicolta/cypress-ecommerce" target="_blank" class="portfolio-item">
-            <div class="portfolio-name">Cypress E2E</div>
-            <div class="portfolio-tech">TypeScript + Cypress</div>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">UI</span>
-              <span class="portfolio-tag">E2E</span>
-            </div>
-          </a>
-          <a href="https://github.com/kestupinanmicolta/selenium-web-automation" target="_blank" class="portfolio-item">
-            <div class="portfolio-name">Selenium Automation</div>
-            <div class="portfolio-tech">Java + Selenium + TestNG</div>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">UI</span>
-              <span class="portfolio-tag">POM</span>
-            </div>
-          </a>
-          <a href="https://github.com/kestupinanmicolta/performance-testing-k6" target="_blank" class="portfolio-item">
-            <div class="portfolio-name">k6 Performance</div>
-            <div class="portfolio-tech">JavaScript + k6</div>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">Perf</span>
-              <span class="portfolio-tag">Load</span>
-            </div>
-          </a>
-          <a href="https://github.com/kestupinanmicolta/qa-ci-cd-pipeline" target="_blank" class="portfolio-item">
-            <div class="portfolio-name">CI/CD Pipeline</div>
-            <div class="portfolio-tech">GitHub Actions</div>
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">DevOps</span>
-              <span class="portfolio-tag">CI/CD</span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Availability -->
-        <div class="section">
-          <div class="section-title">Disponibilidad</div>
-          <div class="avail-grid">
-            <div class="avail-item"><i class="fas fa-check-circle"></i> Remoto</div>
-            <div class="avail-item"><i class="fas fa-check-circle"></i> Presencial</div>
-            <div class="avail-item"><i class="fas fa-check-circle"></i> Híbrido</div>
-          </div>
-          <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">
-            <i class="fas fa-clock" style="color: #3b82f6;"></i> Disponibilidad inmediata
-          </p>
+        <div class="tl">
+          <div class="tl-head"><span class="tl-title">Asistente Administrativa</span><span class="tl-date">2013 - 2015</span></div>
+          <div class="tl-loc">SENA / Tumaco, Nariño</div>
         </div>
       </div>
+
+      <!-- HABILIDADES -->
+      <div class="section" id="habilidades">
+        <div class="section-title">Habilidades Técnicas</div>
+        <div class="skills-grid">
+          <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+          <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+          <span class="skill-tag"><i class="fab fa-node-js"></i> TypeScript</span>
+          <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+          <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+          <span class="skill-tag"><i class="fas fa-check-double"></i> Selenium</span>
+          <span class="skill-tag"><i class="fas fa-theater-masks"></i> Playwright</span>
+          <span class="skill-tag"><i class="fas fa-circle"></i> Cypress</span>
+          <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Appium</span>
+          <span class="skill-tag"><i class="fas fa-cucumber"></i> Cucumber</span>
+          <span class="skill-tag"><i class="fas fa-chalkboard"></i> Serenity</span>
+          <span class="skill-tag"><i class="fas fa-bolt"></i> Karate</span>
+          <span class="skill-tag"><i class="fas fa-plug"></i> REST Assured</span>
+          <span class="skill-tag"><i class="fas fa-tachometer-alt"></i> JMeter</span>
+          <span class="skill-tag"><i class="fas fa-chart-line"></i> k6</span>
+          <span class="skill-tag"><i class="fab fa-github"></i> Actions</span>
+          <span class="skill-tag"><i class="fas fa-brain"></i> OpenAI API</span>
+          <span class="skill-tag"><i class="fas fa-code"></i> Copilot</span>
+        </div>
+      </div>
+
+      <!-- IA -->
+      <div class="section" id="ia">
+        <div class="section-title">Inteligencia Artificial</div>
+        <div class="skills-grid" style="margin-bottom:0.5rem;">
+          <span class="skill-tag"><i class="fas fa-brain"></i> IA y ML</span>
+          <span class="skill-tag"><i class="fas fa-language"></i> LLM</span>
+          <span class="skill-tag"><i class="fas fa-terminal"></i> Prompt Engineering</span>
+          <span class="skill-tag"><i class="fas fa-plug"></i> APIs de IA</span>
+          <span class="skill-tag"><i class="fab fa-java"></i> IA en Java</span>
+          <span class="skill-tag"><i class="fas fa-database"></i> RAG</span>
+          <span class="skill-tag"><i class="fas fa-code"></i> Copilot</span>
+        </div>
+        <ul class="tl-desc">
+          <li>Integración de APIs de OpenAI en aplicaciones Java/Spring Boot</li>
+          <li>Implementación de patrones RAG para búsqueda semántica</li>
+          <li>Uso de GitHub Copilot para desarrollo ágil</li>
+        </ul>
+      </div>
+
     </div>
 
-    <!-- Buttons -->
-    <div class="btn-group">
-      <button class="btn" id="exportPdf">
-        <i class="fas fa-file-pdf"></i> Exportar PDF
-      </button>
-      <a href="https://github.com/kestupinanmicolta" target="_blank" class="btn btn-outline">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-    </div>
+    <!-- RIGHT -->
+    <div class="right-col">
 
-    <!-- Footer -->
-    <div class="footer">
-      © 2026 Karen Paola Estupinan Micolta — QA Tester & Software Developer
+      <!-- CERTIFICACIONES -->
+      <div class="section" id="certificaciones">
+        <div class="section-title">Certificaciones</div>
+        <div class="cert-item">
+          <div class="cert-name">ISTQB® Certified Tester</div>
+          <div class="cert-desc">Fundamentos de pruebas de software</div>
+          <a href="https://www.credly.com/users/karen-paola-estupinan-micolta" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Ver credencial</a>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Diplomado en Pruebas de Software</div>
+          <div class="cert-desc">Calidad y automatización</div>
+        </div>
+      </div>
+
+      <!-- PORTAFOLIO -->
+      <div class="section" id="portafolio">
+        <div class="section-title">Portafolio QA</div>
+        <a href="https://github.com/kestupinanmicolta/karate-api-testing" target="_blank" class="port-item">
+          <div class="port-name">Karate API Testing</div>
+          <div class="port-tech">Java + Karate + JUnit 5</div>
+          <div class="port-tags"><span class="port-tag">API</span><span class="port-tag">BDD</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/playwright-ecommerce" target="_blank" class="port-item">
+          <div class="port-name">Playwright E2E</div>
+          <div class="port-tech">TypeScript + Playwright</div>
+          <div class="port-tags"><span class="port-tag">UI</span><span class="port-tag">Visual</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/cypress-ecommerce" target="_blank" class="port-item">
+          <div class="port-name">Cypress E2E</div>
+          <div class="port-tech">TypeScript + Cypress</div>
+          <div class="port-tags"><span class="port-tag">UI</span><span class="port-tag">E2E</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/selenium-web-automation" target="_blank" class="port-item">
+          <div class="port-name">Selenium Automation</div>
+          <div class="port-tech">Java + Selenium + TestNG</div>
+          <div class="port-tags"><span class="port-tag">UI</span><span class="port-tag">POM</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/performance-testing-k6" target="_blank" class="port-item">
+          <div class="port-name">k6 Performance</div>
+          <div class="port-tech">JavaScript + k6</div>
+          <div class="port-tags"><span class="port-tag">Perf</span><span class="port-tag">Load</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/qa-ci-cd-pipeline" target="_blank" class="port-item">
+          <div class="port-name">CI/CD Pipeline</div>
+          <div class="port-tech">GitHub Actions</div>
+          <div class="port-tags"><span class="port-tag">DevOps</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/api-testing-rest-assured" target="_blank" class="port-item">
+          <div class="port-name">REST Assured API</div>
+          <div class="port-tech">Java + REST Assured + Cucumber</div>
+          <div class="port-tags"><span class="port-tag">API</span><span class="port-tag">BDD</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/serenitybdd-catalogo" target="_blank" class="port-item">
+          <div class="port-name">SerenityBDD Catalogo</div>
+          <div class="port-tech">Java + Serenity + Cucumber</div>
+          <div class="port-tags"><span class="port-tag">API</span><span class="port-tag">BDD</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/performance-testing-jmeter" target="_blank" class="port-item">
+          <div class="port-name">JMeter Performance</div>
+          <div class="port-tech">Apache JMeter</div>
+          <div class="port-tags"><span class="port-tag">Perf</span><span class="port-tag">Load</span></div>
+        </a>
+        <a href="https://github.com/kestupinanmicolta/appium-mobile-testing" target="_blank" class="port-item">
+          <div class="port-name">Appium Mobile</div>
+          <div class="port-tech">Java + Appium + TestNG</div>
+          <div class="port-tags"><span class="port-tag">Mobile</span><span class="port-tag">POM</span></div>
+        </a>
+      </div>
+
+      <!-- DISPONIBILIDAD -->
+      <div class="section" id="disponibilidad">
+        <div class="section-title">Disponibilidad</div>
+        <div class="avail-grid">
+          <div class="avail-item"><i class="fas fa-check-circle"></i> Remoto</div>
+          <div class="avail-item"><i class="fas fa-check-circle"></i> Presencial</div>
+          <div class="avail-item"><i class="fas fa-check-circle"></i> Híbrido</div>
+        </div>
+        <p style="font-size:0.73rem; color:#64748b; margin-top:0.5rem;">
+          <i class="fas fa-clock" style="color:#3b82f6;"></i> Disponibilidad inmediata
+        </p>
+      </div>
+
     </div>
   </div>
 
-  <script>
-    document.getElementById('exportPdf').addEventListener('click', function() {
-      const cv = document.getElementById('cv');
-      const btns = document.querySelector('.btn-group');
-      
-      btns.style.display = 'none';
-      
-      const opt = {
-        margin: 0,
-        filename: 'CV_Karen_Paola_Estupinan.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, logging: false },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-      
-      html2pdf().set(opt).from(cv).save().then(function() {
-        btns.style.display = 'flex';
-      });
-    });
-  </script>
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2026 Karen Paola Estupinan Micolta — QA Tester & Software Developer
+  </div>
+
+</div>
+
+<script>
+document.getElementById('exportPdf').addEventListener('click', function() {
+  var cv = document.getElementById('cv');
+  var nav = document.querySelector('.nav');
+  
+  nav.style.display = 'none';
+  cv.style.margin = '0';
+  cv.style.boxShadow = 'none';
+  
+  var opt = {
+    margin:       [10, 10, 10, 10],
+    filename:     'CV_Karen_Paola_Estupinan.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true, logging: false, letterRendering: true },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+  
+  html2pdf().set(opt).from(cv).save().then(function() {
+    nav.style.display = 'flex';
+    cv.style.margin = '2rem auto';
+    cv.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+  });
+});
+</script>
+
 </body>
 </html>
