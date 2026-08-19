@@ -6,47 +6,109 @@
   <title>Karen Paola Estupinan Micolta - CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #f1f5f9; color: #1e293b; }
 
-    /* NAV */
+    /* ===== NAV ===== */
     .nav {
       background: #0f172a;
-      padding: 0.75rem 2rem;
+      padding: 0 2rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      height: 48px;
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    .nav-brand {
-      color: white;
-      font-weight: 700;
-      font-size: 0.85rem;
-      margin-right: 1rem;
-    }
-    .nav a {
+    .nav-brand { color: white; font-weight: 800; font-size: 0.85rem; margin-right: 2rem; white-space: nowrap; }
+    .nav-links { display: flex; gap: 0; height: 100%; }
+    .nav-links a {
       color: #94a3b8;
       text-decoration: none;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 500;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .nav a:hover, .nav a.active { background: rgba(59,130,246,0.2); color: #60a5fa; }
-    .nav-right {
-      margin-left: auto;
+      padding: 0 0.75rem;
       display: flex;
-      gap: 0.5rem;
+      align-items: center;
+      height: 100%;
+      transition: all 0.15s;
+      position: relative;
     }
+    .nav-links a:hover { color: white; background: rgba(255,255,255,0.05); }
+    .nav-links a.active { color: #60a5fa; }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0.75rem;
+      right: 0.75rem;
+      height: 2px;
+      background: #3b82f6;
+      border-radius: 2px 2px 0 0;
+    }
+
+    /* Dropdown */
+    .dropdown { position: relative; height: 100%; display: flex; align-items: center; }
+    .dropdown-toggle {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      height: 100%;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .dropdown-toggle:hover { color: white; background: rgba(255,255,255,0.05); }
+    .dropdown-toggle i { font-size: 0.6rem; transition: transform 0.2s; }
+    .dropdown:hover .dropdown-toggle i { transform: rotate(180deg); }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 0.5rem 0;
+      min-width: 280px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      z-index: 200;
+    }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1rem;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: all 0.15s;
+      height: auto;
+    }
+    .dropdown-menu a:hover { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .dropdown-menu a i { width: 16px; text-align: center; color: #64748b; font-size: 0.8rem; }
+    .dropdown-menu a:hover i { color: #3b82f6; }
+    .dropdown-menu .menu-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #475569;
+      padding: 0.5rem 1rem 0.25rem;
+    }
+    .dropdown-menu hr { border: none; border-top: 1px solid #334155; margin: 0.25rem 0; }
+
+    .nav-right { margin-left: auto; display: flex; gap: 0.5rem; align-items: center; }
     .nav-btn {
       background: #3b82f6;
       color: white !important;
@@ -59,16 +121,14 @@
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
+      text-decoration: none;
+      transition: all 0.15s;
     }
     .nav-btn:hover { background: #2563eb; }
-    .nav-btn-outline {
-      background: transparent;
-      border: 1px solid #334155;
-      color: #cbd5e1 !important;
-    }
-    .nav-btn-outline:hover { background: #1e293b; }
+    .nav-btn-outline { background: transparent; border: 1px solid #334155; color: #cbd5e1 !important; }
+    .nav-btn-outline:hover { background: #1e293b; border-color: #475569; }
 
-    /* CV */
+    /* ===== CV ===== */
     .cv-wrap { max-width: 900px; margin: 2rem auto; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
 
     .header {
@@ -122,20 +182,73 @@
     .cert-desc { font-size: 0.73rem; color: #64748b; }
     .cert-link { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.68rem; color: #3b82f6; text-decoration: none; margin-top: 0.2rem; }
 
-    .port-item {
-      background: white; border: 1px solid #e2e8f0; border-radius: 8px;
-      padding: 0.6rem 0.75rem; margin-bottom: 0.4rem; text-decoration: none; color: inherit;
-      display: block; transition: all 0.2s;
-    }
-    .port-item:hover { border-color: #3b82f6; box-shadow: 0 2px 8px rgba(59,130,246,0.1); }
-    .port-name { font-weight: 700; font-size: 0.78rem; color: #0f172a; }
-    .port-tech { font-size: 0.68rem; color: #64748b; }
-    .port-tags { display: flex; gap: 0.2rem; margin-top: 0.3rem; }
-    .port-tag { font-size: 0.58rem; font-weight: 600; padding: 0.12rem 0.35rem; border-radius: 4px; background: rgba(59,130,246,0.1); color: #3b82f6; }
-
     .avail-grid { display: flex; flex-direction: column; gap: 0.35rem; }
     .avail-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: #1e293b; }
     .avail-item i { color: #10b981; font-size: 0.68rem; }
+
+    /* ===== PORTFOLIO SECTION - VISUAL ===== */
+    .port-section { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); padding: 2rem; }
+    .port-section .section-title { color: white; border-bottom-color: #3b82f6; }
+    .port-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .port-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .port-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .port-card:hover { background: rgba(255,255,255,0.1); border-color: #3b82f6; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .port-card:hover::before { opacity: 1; }
+    .port-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .port-card-icon.api { background: rgba(16,185,129,0.2); color: #34d399; }
+    .port-card-icon.ui { background: rgba(59,130,246,0.2); color: #60a5fa; }
+    .port-card-icon.perf { background: rgba(245,158,11,0.2); color: #fbbf24; }
+    .port-card-icon.mobile { background: rgba(168,85,247,0.2); color: #c084fc; }
+    .port-card-icon.cicd { background: rgba(236,72,153,0.2); color: #f472b6; }
+    .port-card-title { font-weight: 700; font-size: 0.9rem; }
+    .port-card-tech { font-size: 0.7rem; color: #94a3b8; }
+    .port-card-desc { font-size: 0.72rem; color: #cbd5e1; line-height: 1.4; flex: 1; }
+    .port-card-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: auto; }
+    .port-card-tag {
+      font-size: 0.58rem; font-weight: 600; padding: 0.15rem 0.45rem;
+      border-radius: 4px; background: rgba(59,130,246,0.2); color: #60a5fa;
+    }
+    .port-card-link {
+      font-size: 0.68rem; color: #60a5fa; display: flex; align-items: center; gap: 0.3rem;
+      margin-top: 0.3rem;
+    }
+    .port-card-link i { font-size: 0.6rem; transition: transform 0.2s; }
+    .port-card:hover .port-card-link i { transform: translateX(3px); }
 
     .footer { text-align: center; padding: 1rem; font-size: 0.68rem; color: #94a3b8; background: #f8fafc; border-top: 1px solid #e2e8f0; }
 
@@ -143,38 +256,63 @@
       .main-grid { grid-template-columns: 1fr; }
       .right-col { border-left: none; border-top: 1px solid #e2e8f0; }
       .header { flex-direction: column; }
-      .nav { padding: 0.5rem 1rem; }
+      .nav { padding: 0 1rem; overflow-x: auto; }
+      .port-grid { grid-template-columns: 1fr; }
     }
     @media print {
       .nav { display: none !important; }
       body { background: white; }
       .cv-wrap { box-shadow: none; margin: 0; }
+      .port-section { background: #0f172a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV MENU -->
+<!-- NAV -->
 <nav class="nav">
   <span class="nav-brand">KP Estupinan</span>
-  <a href="#perfil">Perfil</a>
-  <a href="#experiencia">Experiencia</a>
-  <a href="#educacion">Educación</a>
-  <a href="#habilidades">Habilidades</a>
-  <a href="#ia">IA</a>
-  <a href="#portafolio">Portafolio</a>
-  <a href="#certificaciones">Certificaciones</a>
-  <a href="#disponibilidad">Disponibilidad</a>
+  <div class="nav-links">
+    <a href="#perfil">Perfil</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#educacion">Educación</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#ia">IA</a>
+    <a href="#portafolio">Portafolio</a>
+    <div class="dropdown">
+      <span class="dropdown-toggle">Proyectos <i class="fas fa-chevron-down"></i></span>
+      <div class="dropdown-menu">
+        <div class="menu-label">API Testing</div>
+        <a href="https://kestupinanmicolta.github.io/karate-api-testing/" target="_blank"><i class="fas fa-bolt"></i> Karate API Testing</a>
+        <a href="https://kestupinanmicolta.github.io/api-testing-rest-assured/" target="_blank"><i class="fas fa-plug"></i> REST Assured API</a>
+        <a href="https://kestupinanmicolta.github.io/serenitybdd-catalogo/" target="_blank"><i class="fas fa-chalkboard"></i> SerenityBDD Catalogo</a>
+        <hr>
+        <div class="menu-label">UI / E2E Testing</div>
+        <a href="https://kestupinanmicolta.github.io/playwright-ecommerce/" target="_blank"><i class="fas fa-theater-masks"></i> Playwright E2E</a>
+        <a href="https://kestupinanmicolta.github.io/cypress-ecommerce/" target="_blank"><i class="fas fa-circle"></i> Cypress E2E</a>
+        <a href="https://kestupinanmicolta.github.io/selenium-web-automation/" target="_blank"><i class="fas fa-check-double"></i> Selenium Automation</a>
+        <hr>
+        <div class="menu-label">Mobile</div>
+        <a href="https://kestupinanmicolta.github.io/appium-mobile-testing/" target="_blank"><i class="fas fa-mobile-alt"></i> Appium Mobile</a>
+        <hr>
+        <div class="menu-label">Performance</div>
+        <a href="https://kestupinanmicolta.github.io/performance-testing-k6/" target="_blank"><i class="fas fa-chart-line"></i> k6 Performance</a>
+        <a href="https://kestupinanmicolta.github.io/performance-testing-jmeter/" target="_blank"><i class="fas fa-tachometer-alt"></i> JMeter Performance</a>
+        <hr>
+        <div class="menu-label">DevOps</div>
+        <a href="https://kestupinanmicolta.github.io/qa-ci-cd-pipeline/" target="_blank"><i class="fab fa-github"></i> CI/CD Pipeline</a>
+      </div>
+    </div>
+  </div>
   <div class="nav-right">
     <button class="nav-btn" id="exportPdf"><i class="fas fa-file-pdf"></i> PDF</button>
     <a href="https://github.com/kestupinanmicolta" target="_blank" class="nav-btn nav-btn-outline"><i class="fab fa-github"></i> GitHub</a>
   </div>
 </nav>
 
-<!-- CV CONTENT -->
+<!-- CV -->
 <div class="cv-wrap" id="cv">
 
-  <!-- HEADER -->
   <header class="header">
     <div class="header-left">
       <h1>Karen Paola Estupinan Micolta</h1>
@@ -190,10 +328,8 @@
   </header>
 
   <div class="main-grid">
-    <!-- LEFT -->
     <div class="left-col">
 
-      <!-- PERFIL -->
       <div class="section" id="perfil">
         <div class="section-title">Sobre Mí</div>
         <p class="profile">
@@ -201,7 +337,6 @@
         </p>
       </div>
 
-      <!-- EXPERIENCIA -->
       <div class="section" id="experiencia">
         <div class="section-title">Experiencia Laboral</div>
         <div class="tl">
@@ -223,7 +358,6 @@
         </div>
       </div>
 
-      <!-- EDUCACION -->
       <div class="section" id="educacion">
         <div class="section-title">Educación</div>
         <div class="tl">
@@ -240,7 +374,6 @@
         </div>
       </div>
 
-      <!-- HABILIDADES -->
       <div class="section" id="habilidades">
         <div class="section-title">Habilidades Técnicas</div>
         <div class="skills-grid">
@@ -265,7 +398,6 @@
         </div>
       </div>
 
-      <!-- IA -->
       <div class="section" id="ia">
         <div class="section-title">Inteligencia Artificial</div>
         <div class="skills-grid" style="margin-bottom:0.5rem;">
@@ -286,10 +418,8 @@
 
     </div>
 
-    <!-- RIGHT -->
     <div class="right-col">
 
-      <!-- CERTIFICACIONES -->
       <div class="section" id="certificaciones">
         <div class="section-title">Certificaciones</div>
         <div class="cert-item">
@@ -303,63 +433,7 @@
         </div>
       </div>
 
-      <!-- PORTAFOLIO -->
-      <div class="section" id="portafolio">
-        <div class="section-title">Portafolio QA</div>
-        <a href="https://github.com/kestupinanmicolta/karate-api-testing" target="_blank" class="port-item">
-          <div class="port-name">Karate API Testing</div>
-          <div class="port-tech">Java + Karate + JUnit 5</div>
-          <div class="port-tags"><span class="port-tag">API</span><span class="port-tag">BDD</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/playwright-ecommerce" target="_blank" class="port-item">
-          <div class="port-name">Playwright E2E</div>
-          <div class="port-tech">TypeScript + Playwright</div>
-          <div class="port-tags"><span class="port-tag">UI</span><span class="port-tag">Visual</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/cypress-ecommerce" target="_blank" class="port-item">
-          <div class="port-name">Cypress E2E</div>
-          <div class="port-tech">TypeScript + Cypress</div>
-          <div class="port-tags"><span class="port-tag">UI</span><span class="port-tag">E2E</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/selenium-web-automation" target="_blank" class="port-item">
-          <div class="port-name">Selenium Automation</div>
-          <div class="port-tech">Java + Selenium + TestNG</div>
-          <div class="port-tags"><span class="port-tag">UI</span><span class="port-tag">POM</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/performance-testing-k6" target="_blank" class="port-item">
-          <div class="port-name">k6 Performance</div>
-          <div class="port-tech">JavaScript + k6</div>
-          <div class="port-tags"><span class="port-tag">Perf</span><span class="port-tag">Load</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/qa-ci-cd-pipeline" target="_blank" class="port-item">
-          <div class="port-name">CI/CD Pipeline</div>
-          <div class="port-tech">GitHub Actions</div>
-          <div class="port-tags"><span class="port-tag">DevOps</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/api-testing-rest-assured" target="_blank" class="port-item">
-          <div class="port-name">REST Assured API</div>
-          <div class="port-tech">Java + REST Assured + Cucumber</div>
-          <div class="port-tags"><span class="port-tag">API</span><span class="port-tag">BDD</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/serenitybdd-catalogo" target="_blank" class="port-item">
-          <div class="port-name">SerenityBDD Catalogo</div>
-          <div class="port-tech">Java + Serenity + Cucumber</div>
-          <div class="port-tags"><span class="port-tag">API</span><span class="port-tag">BDD</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/performance-testing-jmeter" target="_blank" class="port-item">
-          <div class="port-name">JMeter Performance</div>
-          <div class="port-tech">Apache JMeter</div>
-          <div class="port-tags"><span class="port-tag">Perf</span><span class="port-tag">Load</span></div>
-        </a>
-        <a href="https://github.com/kestupinanmicolta/appium-mobile-testing" target="_blank" class="port-item">
-          <div class="port-name">Appium Mobile</div>
-          <div class="port-tech">Java + Appium + TestNG</div>
-          <div class="port-tags"><span class="port-tag">Mobile</span><span class="port-tag">POM</span></div>
-        </a>
-      </div>
-
-      <!-- DISPONIBILIDAD -->
-      <div class="section" id="disponibilidad">
+      <div class="section">
         <div class="section-title">Disponibilidad</div>
         <div class="avail-grid">
           <div class="avail-item"><i class="fas fa-check-circle"></i> Remoto</div>
@@ -374,7 +448,104 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- PORTFOLIO SECTION - FULL WIDTH VISUAL -->
+  <div class="port-section" id="portafolio">
+    <div class="section-title">Portafolio QA — 10 Proyectos</div>
+    <div class="port-grid">
+
+      <a href="https://kestupinanmicolta.github.io/karate-api-testing/" target="_blank" class="port-card">
+        <div class="port-card-icon api"><i class="fas fa-bolt"></i></div>
+        <div class="port-card-title">Karate API Testing</div>
+        <div class="port-card-tech">Java + Karate + JUnit 5</div>
+        <div class="port-card-desc">Pruebas de API con BDD, validación de schemas, tests negativos y headers.</div>
+        <div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">BDD</span><span class="port-card-tag">JSONPlaceholder</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/playwright-ecommerce/" target="_blank" class="port-card">
+        <div class="port-card-icon ui"><i class="fas fa-theater-masks"></i></div>
+        <div class="port-card-title">Playwright E2E</div>
+        <div class="port-card-tech">TypeScript + Playwright</div>
+        <div class="port-card-desc">Tests end-to-end, visuales, de accesibilidad y API con Page Objects.</div>
+        <div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">Visual</span><span class="port-card-tag">A11y</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/cypress-ecommerce/" target="_blank" class="port-card">
+        <div class="port-card-icon ui"><i class="fas fa-circle"></i></div>
+        <div class="port-card-title">Cypress E2E</div>
+        <div class="port-card-tech">TypeScript + Cypress</div>
+        <div class="port-card-desc">Automatización E2E con Page Objects, intercepts de API y commands custom.</div>
+        <div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">E2E</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/selenium-web-automation/" target="_blank" class="port-card">
+        <div class="port-card-icon ui"><i class="fas fa-check-double"></i></div>
+        <div class="port-card-title">Selenium Automation</div>
+        <div class="port-card-tech">Java + Selenium + TestNG</div>
+        <div class="port-card-desc">Framework POM con Selenium 4, TestNG, Allure Reports y waits explícitos.</div>
+        <div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">POM</span><span class="port-card-tag">Allure</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/api-testing-rest-assured/" target="_blank" class="port-card">
+        <div class="port-card-icon api"><i class="fas fa-plug"></i></div>
+        <div class="port-card-title">REST Assured API</div>
+        <div class="port-card-tech">Java + REST Assured + Cucumber</div>
+        <div class="port-card-desc">BDD API testing con Petstore, step definitions y reportes Serenity.</div>
+        <div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">BDD</span><span class="port-card-tag">Petstore</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/serenitybdd-catalogo/" target="_blank" class="port-card">
+        <div class="port-card-icon api"><i class="fas fa-chalkboard"></i></div>
+        <div class="port-card-title">SerenityBDD Catalogo</div>
+        <div class="port-card-tech">Java + Serenity + Cucumber</div>
+        <div class="port-card-desc">API testing con reportes HTML auto-generados, boundary y negative tests.</div>
+        <div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">Reports</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/performance-testing-k6/" target="_blank" class="port-card">
+        <div class="port-card-icon perf"><i class="fas fa-chart-line"></i></div>
+        <div class="port-card-title">k6 Performance</div>
+        <div class="port-card-tech">JavaScript + k6</div>
+        <div class="port-card-desc">Load, stress, spike y soak testing con umbrales personalizados.</div>
+        <div class="port-card-tags"><span class="port-card-tag">Perf</span><span class="port-card-tag">Load</span><span class="port-card-tag">Stress</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/performance-testing-jmeter/" target="_blank" class="port-card">
+        <div class="port-card-icon perf"><i class="fas fa-tachometer-alt"></i></div>
+        <div class="port-card-title">JMeter Performance</div>
+        <div class="port-card-tech">Apache JMeter</div>
+        <div class="port-card-desc">Test plans para load, stress y spike con listeners y assertions.</div>
+        <div class="port-card-tags"><span class="port-card-tag">Perf</span><span class="port-card-tag">JMX</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/appium-mobile-testing/" target="_blank" class="port-card">
+        <div class="port-card-icon mobile"><i class="fas fa-mobile-alt"></i></div>
+        <div class="port-card-title">Appium Mobile</div>
+        <div class="port-card-tech">Java + Appium + TestNG</div>
+        <div class="port-card-desc">Automatización mobile con Page Objects, Android/iOS y Allure.</div>
+        <div class="port-card-tags"><span class="port-card-tag">Mobile</span><span class="port-card-tag">Android</span><span class="port-card-tag">iOS</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://kestupinanmicolta.github.io/qa-ci-cd-pipeline/" target="_blank" class="port-card">
+        <div class="port-card-icon cicd"><i class="fab fa-github"></i></div>
+        <div class="port-card-title">CI/CD Pipeline</div>
+        <div class="port-card-tech">GitHub Actions</div>
+        <div class="port-card-desc">Pipelines automatizados con nightly runs y test orchestration.</div>
+        <div class="port-card-tags"><span class="port-card-tag">DevOps</span><span class="port-card-tag">CI/CD</span></div>
+        <div class="port-card-link">Ver proyecto <i class="fas fa-arrow-right"></i></div>
+      </a>
+
+    </div>
+  </div>
+
   <div class="footer">
     © 2026 Karen Paola Estupinan Micolta — QA Tester & Software Developer
   </div>
@@ -385,21 +556,18 @@
 document.getElementById('exportPdf').addEventListener('click', function() {
   var cv = document.getElementById('cv');
   var nav = document.querySelector('.nav');
-  
   nav.style.display = 'none';
   cv.style.margin = '0';
   cv.style.boxShadow = 'none';
   
-  var opt = {
-    margin:       [10, 10, 10, 10],
-    filename:     'CV_Karen_Paola_Estupinan.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, logging: false, letterRendering: true },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
-  };
-  
-  html2pdf().set(opt).from(cv).save().then(function() {
+  html2pdf().set({
+    margin: [10, 10, 10, 10],
+    filename: 'CV_Karen_Paola_Estupinan.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true, logging: false, letterRendering: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+  }).from(cv).save().then(function() {
     nav.style.display = 'flex';
     cv.style.margin = '2rem auto';
     cv.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
