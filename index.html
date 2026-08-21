@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -12,27 +12,8 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#1e293b;line-height:1.5}
-    .nav{background:#0f172a;padding:0 2rem;display:flex;align-items:center;height:48px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-    .nav-brand{color:white;font-weight:800;font-size:.85rem;margin-right:2rem;white-space:nowrap}
-    .nav-links{display:flex;height:100%}
-    .nav-links>a,.nav-links>.dropdown>.dd-toggle{color:#94a3b8;text-decoration:none;font-size:.75rem;font-weight:500;padding:0 .75rem;display:flex;align-items:center;gap:.3rem;height:100%;transition:all .15s;cursor:pointer;position:relative}
-    .nav-links>a:hover,.nav-links>.dropdown>.dd-toggle:hover{color:white;background:rgba(255,255,255,.05)}
-    .dd-toggle i{font-size:.55rem;transition:transform .2s}
-    .dropdown{position:relative;height:100%;display:flex;align-items:center}
-    .dropdown:hover .dd-toggle i{transform:rotate(180deg)}
-    .dd-menu{display:none;position:absolute;top:100%;left:0;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:.5rem 0;min-width:260px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:200}
-    .dropdown:hover .dd-menu{display:block}
-    .dd-menu a{display:flex;align-items:center;gap:.6rem;padding:.5rem 1rem;color:#cbd5e1;text-decoration:none;font-size:.75rem;transition:all .15s}
-    .dd-menu a:hover{background:rgba(59,130,246,.15);color:#60a5fa}
-    .dd-menu a i{width:16px;text-align:center;color:#64748b;font-size:.8rem}
-    .dd-menu a:hover i{color:#3b82f6}
-    .dd-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#475569;padding:.5rem 1rem .25rem}
-    .dd-menu hr{border:none;border-top:1px solid #334155;margin:.25rem 0}
-    .nav-right{margin-left:auto;display:flex;gap:.5rem;align-items:center}
-    .nav-btn{background:#3b82f6;color:white!important;border:none;padding:.4rem .8rem;border-radius:6px;font-weight:600;font-size:.72rem;cursor:pointer;display:inline-flex;align-items:center;gap:.3rem;text-decoration:none;transition:all .15s}
-    .nav-btn:hover{background:#2563eb}
-    .nav-btn-outline{background:transparent;border:1px solid #334155;color:#cbd5e1!important}
-    .nav-btn-outline:hover{background:#1e293b;border-color:#475569}
+    .nav-btn{background:#10b981;color:white!important;border:none;padding:.5rem 1rem;border-radius:6px;font-weight:600;font-size:.75rem;cursor:pointer;display:inline-flex;align-items:center;gap:.3rem;text-decoration:none;transition:all .15s}
+    .nav-btn:hover{background:#059669}
     .cv-wrap{max-width:900px;margin:0 auto;background:white;box-shadow:0 4px 20px rgba(0,0,0,.1)}
     .header{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:white;padding:2.5rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem}
     .header-left h1{font-size:1.8rem;font-weight:800;margin-bottom:.3rem}
@@ -65,68 +46,35 @@
     .avail-grid{display:flex;flex-direction:column;gap:.35rem}
     .avail-item{display:flex;align-items:center;gap:.4rem;font-size:.78rem}
     .avail-item i{color:#10b981;font-size:.68rem}
-    .port-section{padding:2rem;background:linear-gradient(135deg,#0f172a,#1e3a5f)}
-    .port-section .section-title{color:white;border-bottom-color:#3b82f6}
-    .port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.8rem}
-    .port-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1rem;text-decoration:none;color:white;display:flex;flex-direction:column;gap:.5rem;transition:all .25s;position:relative;overflow:hidden}
+    .port-section{padding:2rem 0}
+    .port-section .section-title{color:#1e293b;border-bottom-color:#3b82f6}
+    .port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;padding:0 2rem}
+    .port-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:1.2rem;display:flex;flex-direction:column;gap:.6rem;transition:all .25s;position:relative;overflow:hidden}
     .port-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3b82f6,#60a5fa);opacity:0;transition:opacity .25s}
-    .port-card:hover{background:rgba(255,255,255,.1);border-color:#3b82f6;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+    .port-card:hover{border-color:#3b82f6;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
     .port-card:hover::before{opacity:1}
     .port-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem}
-    .port-card-icon.api{background:rgba(16,185,129,.2);color:#34d399}
-    .port-card-icon.ui{background:rgba(59,130,246,.2);color:#60a5fa}
-    .port-card-icon.perf{background:rgba(245,158,11,.2);color:#fbbf24}
-    .port-card-icon.mobile{background:rgba(168,85,247,.2);color:#c084fc}
-    .port-card-icon.cicd{background:rgba(236,72,153,.2);color:#f472b6}
-    .port-card-title{font-weight:700;font-size:.85rem}
-    .port-card-tech{font-size:.68rem;color:#94a3b8}
-    .port-card-tags{display:flex;gap:.25rem;flex-wrap:wrap;margin-top:auto}
-    .port-card-tag{font-size:.56rem;font-weight:600;padding:.12rem .4rem;border-radius:4px;background:rgba(59,130,246,.2);color:#60a5fa}
+    .port-card-icon.api{background:rgba(16,185,129,.15);color:#059669}
+    .port-card-icon.ui{background:rgba(59,130,246,.15);color:#2563eb}
+    .port-card-icon.perf{background:rgba(245,158,11,.15);color:#d97706}
+    .port-card-icon.mobile{background:rgba(168,85,247,.15);color:#7c3aed}
+    .port-card-icon.cicd{background:rgba(236,72,153,.15);color:#db2777}
+    .port-card-title{font-weight:700;font-size:.88rem;color:#0f172a}
+    .port-card-tech{font-size:.68rem;color:#64748b}
+    .port-card-tags{display:flex;gap:.25rem;flex-wrap:wrap}
+    .port-card-tag{font-size:.56rem;font-weight:600;padding:.12rem .4rem;border-radius:4px;background:rgba(59,130,246,.1);color:#3b82f6}
+    .port-card-btns{display:flex;gap:.5rem;margin-top:.5rem}
+    .port-card-btns a{font-size:.65rem;font-weight:600;padding:.35rem .7rem;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;transition:all .15s}
+    .port-btn-repo{background:#0f172a;color:white}
+    .port-btn-repo:hover{background:#1e293b}
+    .port-btn-report{background:white;color:#0f172a;border:1px solid #e2e8f0}
+    .port-btn-report:hover{background:#f1f5f9}
     .footer{text-align:center;padding:1rem;font-size:.68rem;color:#94a3b8;background:#f8fafc;border-top:1px solid #e2e8f0}
-    @media(max-width:768px){.main-grid{grid-template-columns:1fr}.right-col{border-left:none;border-top:1px solid #e2e8f0}.header{flex-direction:column}.nav{padding:0 1rem;overflow-x:auto}.port-grid{grid-template-columns:1fr}}
-    @media print{.nav{display:none!important}body{background:white}.cv-wrap{box-shadow:none;margin:0}.port-section{background:#0f172a!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+    @media(max-width:768px){.main-grid{grid-template-columns:1fr}.right-col{border-left:none;border-top:1px solid #e2e8f0}.header{flex-direction:column}.port-grid{grid-template-columns:1fr}}
+    @media print{body{background:white}.cv-wrap{box-shadow:none;margin:0}.port-section{background:white!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
   </style>
 </head>
 <body>
-<nav class="nav" id="nav">
-  <span class="nav-brand">KP Estupinan</span>
-  <div class="nav-links">
-    <a href="#perfil">Perfil</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#educacion">Educacion</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#ia">IA</a>
-    <a href="#portafolio">Portafolio</a>
-    <div class="dropdown">
-      <span class="dd-toggle">Proyectos Pages <i class="fas fa-chevron-down"></i></span>
-      <div class="dd-menu">
-        <div class="dd-label">API Testing</div>
-        <a href="https://kestupinanmicolta.github.io/karate-api-testing/" target="_blank"><i class="fas fa-bolt"></i> Karate API Testing</a>
-        <a href="https://kestupinanmicolta.github.io/api-testing-rest-assured/" target="_blank"><i class="fas fa-plug"></i> REST Assured API</a>
-        <a href="https://kestupinanmicolta.github.io/serenitybdd-catalogo/" target="_blank"><i class="fas fa-chalkboard"></i> SerenityBDD Catalogo</a>
-        <hr>
-        <div class="dd-label">UI / E2E Testing</div>
-        <a href="https://kestupinanmicolta.github.io/playwright-ecommerce/" target="_blank"><i class="fas fa-theater-masks"></i> Playwright E2E</a>
-        <a href="https://kestupinanmicolta.github.io/cypress-ecommerce/" target="_blank"><i class="fas fa-circle"></i> Cypress E2E</a>
-        <a href="https://kestupinanmicolta.github.io/selenium-web-automation/" target="_blank"><i class="fas fa-check-double"></i> Selenium Automation</a>
-        <hr>
-        <div class="dd-label">Mobile</div>
-        <a href="https://kestupinanmicolta.github.io/appium-mobile-testing/" target="_blank"><i class="fas fa-mobile-alt"></i> Appium Mobile</a>
-        <hr>
-        <div class="dd-label">Performance</div>
-        <a href="https://kestupinanmicolta.github.io/performance-testing-k6/" target="_blank"><i class="fas fa-chart-line"></i> k6 Performance</a>
-        <a href="https://kestupinanmicolta.github.io/performance-testing-jmeter/" target="_blank"><i class="fas fa-tachometer-alt"></i> JMeter Performance</a>
-        <hr>
-        <div class="dd-label">DevOps</div>
-        <a href="https://kestupinanmicolta.github.io/qa-ci-cd-pipeline/" target="_blank"><i class="fab fa-github"></i> CI/CD Pipeline</a>
-      </div>
-    </div>
-  </div>
-  <div class="nav-right">
-    <button class="nav-btn" id="exportPdf"><i class="fas fa-file-pdf"></i> PDF</button>
-    <a href="https://github.com/kestupinanmicolta" target="_blank" class="nav-btn nav-btn-outline"><i class="fab fa-github"></i> GitHub</a>
-  </div>
-</nav>
 <div class="cv-wrap" id="cv">
   <header class="header">
     <div class="header-left">
@@ -139,6 +87,7 @@
       <span><i class="fas fa-map-marker-alt"></i> Rionegro, Antioquia</span>
       <a href="https://linkedin.com/in/karen-paola-estupinan-micolta" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
       <a href="https://github.com/kestupinanmicolta" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <button class="nav-btn" id="exportPdf"><i class="fas fa-file-pdf"></i> Descargar PDF</button>
     </div>
   </header>
   <div class="main-grid">
@@ -163,7 +112,7 @@
       <div class="section" id="educacion">
         <div class="section-title">Educacion</div>
         <div class="tl"><div class="tl-head"><span class="tl-title">Tecnologia en Desarrollo de Software</span><span class="tl-date">2023 - Actualidad</span></div><div class="tl-loc">Uniremington / Rionegro, Antioquia</div></div>
-        <div class="tl"><div class="tl-head"><span class="tl-title">Ingeniera Agronoma <span class="badge">Honores</span></span><span class="tl-date">2016 - 2021</span></div><div class="tl-loc">Universidad de Narino / Pasto, Narino</div></div>
+        <div class="tl"><div class="tl-head"><span class="tl-title">Ingeniera Agronoma</span><span class="tl-date">2016 - 2021</span></div><div class="tl-loc">Universidad de Narino / Pasto, Narino</div></div>
         <div class="tl"><div class="tl-head"><span class="tl-title">Asistente Administrativa</span><span class="tl-date">2013 - 2015</span></div><div class="tl-loc">SENA / Tumaco, Narino</div></div>
       </div>
       <div class="section" id="habilidades">
@@ -221,28 +170,29 @@
     </div>
   </div>
   <div class="port-section" id="portafolio">
-    <div class="section-title">Portafolio QA - 10 Proyectos</div>
+    <div class="section-title" style="padding-left:2rem">Portafolio QA - 10 Proyectos</div>
     <div class="port-grid">
-      <a href="https://github.com/kestupinanmicolta/karate-api-testing" target="_blank" class="port-card"><div class="port-card-icon api"><i class="fas fa-bolt"></i></div><div class="port-card-title">Karate API Testing</div><div class="port-card-tech">Java + Karate + JUnit 5</div><div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">BDD</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/playwright-ecommerce" target="_blank" class="port-card"><div class="port-card-icon ui"><i class="fas fa-theater-masks"></i></div><div class="port-card-title">Playwright E2E</div><div class="port-card-tech">TypeScript + Playwright</div><div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">Visual</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/cypress-ecommerce" target="_blank" class="port-card"><div class="port-card-icon ui"><i class="fas fa-circle"></i></div><div class="port-card-title">Cypress E2E</div><div class="port-card-tech">TypeScript + Cypress</div><div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">E2E</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/selenium-web-automation" target="_blank" class="port-card"><div class="port-card-icon ui"><i class="fas fa-check-double"></i></div><div class="port-card-title">Selenium Automation</div><div class="port-card-tech">Java + Selenium + TestNG</div><div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">POM</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/api-testing-rest-assured" target="_blank" class="port-card"><div class="port-card-icon api"><i class="fas fa-plug"></i></div><div class="port-card-title">REST Assured API</div><div class="port-card-tech">Java + REST Assured + Cucumber</div><div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">BDD</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/serenitybdd-catalogo" target="_blank" class="port-card"><div class="port-card-icon api"><i class="fas fa-chalkboard"></i></div><div class="port-card-title">SerenityBDD Catalogo</div><div class="port-card-tech">Java + Serenity + Cucumber</div><div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">Reports</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/performance-testing-k6" target="_blank" class="port-card"><div class="port-card-icon perf"><i class="fas fa-chart-line"></i></div><div class="port-card-title">k6 Performance</div><div class="port-card-tech">JavaScript + k6</div><div class="port-card-tags"><span class="port-card-tag">Perf</span><span class="port-card-tag">Load</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/performance-testing-jmeter" target="_blank" class="port-card"><div class="port-card-icon perf"><i class="fas fa-tachometer-alt"></i></div><div class="port-card-title">JMeter Performance</div><div class="port-card-tech">Apache JMeter</div><div class="port-card-tags"><span class="port-card-tag">Perf</span><span class="port-card-tag">JMX</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/appium-mobile-testing" target="_blank" class="port-card"><div class="port-card-icon mobile"><i class="fas fa-mobile-alt"></i></div><div class="port-card-title">Appium Mobile</div><div class="port-card-tech">Java + Appium + TestNG</div><div class="port-card-tags"><span class="port-card-tag">Mobile</span></div></a>
-      <a href="https://github.com/kestupinanmicolta/qa-ci-cd-pipeline" target="_blank" class="port-card"><div class="port-card-icon cicd"><i class="fab fa-github"></i></div><div class="port-card-title">CI/CD Pipeline</div><div class="port-card-tech">GitHub Actions</div><div class="port-card-tags"><span class="port-card-tag">DevOps</span></div></a>
+      <div class="port-card"><div class="port-card-icon api"><i class="fas fa-bolt"></i></div><div class="port-card-title">Karate API Testing</div><div class="port-card-tech">Java + Karate + JUnit 5</div><div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">BDD</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/karate-api-testing" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/karate-api-testing/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon ui"><i class="fas fa-theater-masks"></i></div><div class="port-card-title">Playwright E2E</div><div class="port-card-tech">TypeScript + Playwright</div><div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">Visual</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/playwright-ecommerce" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/playwright-ecommerce/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon ui"><i class="fas fa-circle"></i></div><div class="port-card-title">Cypress E2E</div><div class="port-card-tech">TypeScript + Cypress</div><div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">E2E</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/cypress-ecommerce" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/cypress-ecommerce/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon ui"><i class="fas fa-check-double"></i></div><div class="port-card-title">Selenium Automation</div><div class="port-card-tech">Java + Selenium + TestNG</div><div class="port-card-tags"><span class="port-card-tag">UI</span><span class="port-card-tag">POM</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/selenium-web-automation" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/selenium-web-automation/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon api"><i class="fas fa-plug"></i></div><div class="port-card-title">REST Assured API</div><div class="port-card-tech">Java + REST Assured + Cucumber</div><div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">BDD</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/api-testing-rest-assured" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/api-testing-rest-assured/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon api"><i class="fas fa-chalkboard"></i></div><div class="port-card-title">SerenityBDD Catalogo</div><div class="port-card-tech">Java + Serenity + Cucumber</div><div class="port-card-tags"><span class="port-card-tag">API</span><span class="port-card-tag">Reports</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/serenitybdd-catalogo" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/serenitybdd-catalogo/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon perf"><i class="fas fa-chart-line"></i></div><div class="port-card-title">k6 Performance</div><div class="port-card-tech">JavaScript + k6</div><div class="port-card-tags"><span class="port-card-tag">Perf</span><span class="port-card-tag">Load</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/performance-testing-k6" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/performance-testing-k6/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon perf"><i class="fas fa-tachometer-alt"></i></div><div class="port-card-title">JMeter Performance</div><div class="port-card-tech">Apache JMeter</div><div class="port-card-tags"><span class="port-card-tag">Perf</span><span class="port-card-tag">JMX</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/performance-testing-jmeter" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/performance-testing-jmeter/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon mobile"><i class="fas fa-mobile-alt"></i></div><div class="port-card-title">Appium Mobile</div><div class="port-card-tech">Java + Appium + TestNG</div><div class="port-card-tags"><span class="port-card-tag">Mobile</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/appium-mobile-testing" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/appium-mobile-testing/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
+      <div class="port-card"><div class="port-card-icon cicd"><i class="fab fa-github"></i></div><div class="port-card-title">CI/CD Pipeline</div><div class="port-card-tech">GitHub Actions</div><div class="port-card-tags"><span class="port-card-tag">DevOps</span></div><div class="port-card-btns"><a href="https://github.com/kestupinanmicolta/qa-ci-cd-pipeline" target="_blank" class="port-btn-repo"><i class="fab fa-github"></i> Repositorio</a><a href="https://kestupinanmicolta.github.io/qa-ci-cd-pipeline/" target="_blank" class="port-btn-report"><i class="fas fa-chart-bar"></i> Reporte</a></div></div>
     </div>
   </div>
   <div class="footer">2026 Karen Paola Estupinan Micolta - QA Tester & Software Developer</div>
 </div>
 <script>
 document.getElementById('exportPdf').addEventListener('click',function(){
-  var cv=document.getElementById('cv');var nav=document.getElementById('nav');
-  nav.style.display='none';cv.style.margin='0';cv.style.boxShadow='none';
-  html2pdf().set({margin:0,filename:'CV_Karen_Paola_Estupinan.pdf',image:{type:'jpeg',quality:.98},html2canvas:{scale:2,useCORS:true,logging:false,letterRendering:true},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['avoid-all','css','legacy']}}).from(cv).save().then(function(){nav.style.display='flex';cv.style.margin='0 auto';cv.style.boxShadow='0 4px 20px rgba(0,0,0,.1)'});
+  var cv=document.getElementById('cv');cv.style.margin='0';cv.style.boxShadow='none';
+  var ps=document.getElementById('portafolio');ps.style.display='none';
+  html2pdf().set({margin:0,filename:'CV_Karen_Paola_Estupinan.pdf',image:{type:'jpeg',quality:.98},html2canvas:{scale:2,useCORS:true,logging:false,letterRendering:true},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['avoid-all','css','legacy']}}).from(cv).save().then(function(){ps.style.display='';cv.style.margin='0 auto';cv.style.boxShadow='0 4px 20px rgba(0,0,0,.1)'});
 });
 </script>
 </body>
 </html>
+
