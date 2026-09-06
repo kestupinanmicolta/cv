@@ -641,11 +641,20 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-// PDF Export
+// PDF Export - Excluir portafolio
 document.getElementById('exportPdf').addEventListener('click', function(){
   var cv = document.getElementById('cv');
+  var portfolioHero = document.querySelector('.portfolio-hero');
+  var categoryTabs = document.querySelector('.category-tabs');
+  var portfolioSection = document.querySelector('.portfolio-section');
+
+  // Ocultar portafolio antes de generar PDF
+  portfolioHero.style.display = 'none';
+  categoryTabs.style.display = 'none';
+  portfolioSection.style.display = 'none';
   cv.style.margin = '0';
   cv.style.boxShadow = 'none';
+
   html2pdf().set({
     margin: 0,
     filename: 'CV_Karen_Paola_Estupinan.pdf',
@@ -654,6 +663,10 @@ document.getElementById('exportPdf').addEventListener('click', function(){
     jsPDF: {unit:'mm',format:'a4',orientation:'portrait'},
     pagebreak: {mode:['avoid-all','css','legacy']}
   }).from(cv).save().then(function(){
+    // Restaurar portafolio después de generar PDF
+    portfolioHero.style.display = '';
+    categoryTabs.style.display = '';
+    portfolioSection.style.display = '';
     cv.style.margin = '0 auto';
     cv.style.boxShadow = '0 8px 40px rgba(0,0,0,.3)';
   });
