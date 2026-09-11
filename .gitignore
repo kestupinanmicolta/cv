@@ -1,0 +1,6 @@
+# Backup files
+*_backup*
+index_es.html
+
+# Embedded git repo
+cv/
