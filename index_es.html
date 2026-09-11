@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - Karen Paola Estupinan Micolta</title>
+    <meta name="description" content="Estudiante de Tecnología en Desarrollo de Software | Test Automation | QA Automation | ISTQB Certified" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #f0f2f5;
+            color: #1f2937;
+            line-height: 1.5;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv {
+            width: 100%;
+            max-width: 780px;
+            background: #fff;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .cv-header {
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #111827;
+            margin-bottom: 1.2rem;
+        }
+
+        .cv-header h1 {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: #111827;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .cv-header .subtitle {
+            font-size: 0.82rem;
+            color: #374151;
+            font-weight: 500;
+            margin-top: 0.15rem;
+        }
+
+        .cv-header .contact {
+            font-size: 0.73rem;
+            color: #4b5563;
+            margin-top: 0.4rem;
+            line-height: 1.6;
+        }
+
+        .cv-header .contact a {
+            color: #4b5563;
+            text-decoration: none;
+        }
+
+        .cv-header .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .cv-header .availability {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #166534;
+            background: #dcfce7;
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+        }
+
+        .section {
+            margin-bottom: 1.1rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #111827;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1.5px solid #d1d5db;
+        }
+
+        .profile-text {
+            font-size: 0.78rem;
+            color: #374151;
+            line-height: 1.65;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 2rem;
+        }
+
+        .skill-cat {
+            margin-bottom: 0.25rem;
+        }
+
+        .skill-cat:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-cat-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .skill-cat-list {
+            font-size: 0.72rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .projects-summary {
+            margin-bottom: 0.4rem;
+        }
+
+        .project-item {
+            margin-bottom: 0.35rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .project-item strong {
+            font-size: 0.75rem;
+            color: #111827;
+        }
+
+        .project-item span {
+            font-size: 0.72rem;
+            color: #4b5563;
+        }
+
+        .project-metrics {
+            font-size: 0.68rem;
+            color: #6b7280;
+            margin-top: 0.1rem;
+        }
+
+        .exp-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.2rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .exp-role {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .exp-date {
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: #6b7280;
+        }
+
+        .exp-company {
+            font-size: 0.72rem;
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 0.2rem;
+        }
+
+        .exp-list {
+            list-style: disc;
+            padding-left: 1.1rem;
+            margin-top: 0.15rem;
+        }
+
+        .exp-list li {
+            font-size: 0.72rem;
+            color: #374151;
+            margin-bottom: 0.15rem;
+            line-height: 1.45;
+        }
+
+        .edu-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .clean-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .clean-list li {
+            font-size: 0.72rem;
+            color: #374151;
+            margin-bottom: 0.2rem;
+            line-height: 1.45;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+            justify-content: center;
+        }
+
+        .btn-pdf {
+            background: #111827;
+            color: #fff;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .btn-pdf:hover {
+            background: #374151;
+        }
+
+        .btn-web {
+            background: transparent;
+            color: #374151;
+            border: 1.5px solid #d1d5db;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .btn-web:hover {
+            border-color: #111827;
+            color: #111827;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .cv {
+                padding: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm 16mm;
+            margin-top: 15mm;
+            margin-bottom: 15mm;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm 16mm;
+                margin-top: 15mm;
+                margin-bottom: 15mm;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            html {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            html,
+            body {
+                background: #fff !important;
+                width: 100% !important;
+            }
+
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                display: block;
+                font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+                font-size: 9.5pt;
+                color: #1f2937;
+                line-height: 1.4;
+            }
+
+            .cv {
+                max-width: 100%;
+                width: 100% !important;
+                padding: 0;
+                box-shadow: none;
+                margin: 0 !important;
+                border: none !important;
+            }
+
+            .btn-row {
+                display: none !important;
+            }
+
+            .cv-header h1 {
+                font-size: 17pt;
+            }
+
+            .cv-header .subtitle {
+                font-size: 9.5pt;
+            }
+
+            .cv-header .contact {
+                font-size: 8.5pt;
+            }
+
+            .cv-header .availability {
+                font-size: 8.5pt;
+            }
+
+            .section-title {
+                font-size: 9pt;
+                margin-bottom: 3pt;
+                padding-bottom: 2pt;
+            }
+
+            .profile-text {
+                font-size: 9pt;
+                line-height: 1.5;
+            }
+
+            .skill-cat-label,
+            .skill-cat-list {
+                font-size: 8.5pt;
+            }
+
+            .project-item strong {
+                font-size: 9pt;
+            }
+
+            .project-item span {
+                font-size: 8.5pt;
+            }
+
+            .project-metrics {
+                font-size: 8pt;
+            }
+
+            .exp-role {
+                font-size: 9pt;
+            }
+
+            .exp-date {
+                font-size: 8pt;
+            }
+
+            .exp-company {
+                font-size: 8.5pt;
+            }
+
+            .exp-list li,
+            .clean-list li {
+                font-size: 8.5pt;
+            }
+
+            .edu-item .exp-role {
+                font-size: 9pt;
+            }
+
+            .edu-item .exp-company {
+                font-size: 8.5pt;
+            }
+
+            .edu-item .exp-date {
+                font-size: 8pt;
+            }
+
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 8pt;
+            }
+
+            .project-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .exp-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .edu-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            @page :first {
+                margin-top: 15mm;
+            }
+
+            @page :last {
+                margin-bottom: 15mm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv" id="cv">
+        <header class="cv-header">
+            <h1>Karen Paola Estupinan Micolta</h1>
+            <div class="subtitle">Estudiante de Tecnología en Desarrollo de Software | Test Automation | QA Automation | ISTQB
+                Certified</div>
+            <div class="contact">
+                Rionegro, Antioquia, Colombia &nbsp;&middot;&nbsp; 319 470 1032 &nbsp;&middot;&nbsp;
+                kestupinanmicolta@gmail.com<br />
+                GitHub: <a href="https://github.com/kestupinanmicolta" target="_blank"
+                    rel="noopener">github.com/kestupinanmicolta</a> &nbsp;&middot;&nbsp;
+                LinkedIn: <a href="https://www.linkedin.com/in/karen-paola-estupinan-micolta/" target="_blank"
+                    rel="noopener">linkedin.com/in/karen-paola-estupinan-micolta</a> &nbsp;&middot;&nbsp;
+                Portafolio: <a href="https://kestupinanmicolta.github.io/cv/" target="_blank"
+                    rel="noopener">kestupinanmicolta.github.io/cv</a>
+            </div>
+            <div class="availability">Disponible para prácticas universitarias durante el periodo 2027-1</div>
+            <div class="btn-row">
+                <button type="button" class="btn-pdf" id="exportPdf">Descargar PDF</button>
+                <a href="https://kestupinanmicolta.github.io/cv/" target="_blank" rel="noopener" class="btn-web">Ver
+                    versión web</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="section-title">Perfil Profesional</div>
+            <p class="profile-text">Estudiante de Tecnología en Desarrollo de Software en Uniremington, con formación práctica en
+                desarrollo de software, automatización de pruebas y testing de aplicaciones web, móviles y APIs. Experiencia
+                académica y en proyectos personales utilizando Java, JavaScript, TypeScript, SQL, Selenium, Playwright, Cypress,
+                Appium, REST Assured y Karate. Conocimientos en APIs REST, bases de datos, Git, CI/CD, Docker, Scrum, Agile,
+                BDD y TDD. ISTQB Certified Tester – Foundation Level. Buscando prácticas universitarias 2027-1 en
+                desarrollo de software, automatización de pruebas o QA. Inglés B1 – conversacional, en mejora continua hacia B2.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Habilidades Técnicas</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <div class="skill-cat-label">Lenguajes de Programación:</div>
+                    <div class="skill-cat-list">Java, JavaScript, TypeScript, SQL</div>
+                </div>
+                <div class="skill-cat">
+                    <div class="skill-cat-label">Desarrollo y Testing de Software:</div>
+                    <div class="skill-cat-list">Software Testing, Test Automation, End-to-End Testing, API Testing,
+                        Mobile Testing, Unit Testing, BDD, TDD</div>
+                </div>
+                <div class="skill-cat">
+                    <div class="skill-cat-label">Frameworks de Automatización:</div>
+                    <div class="skill-cat-list">Selenium, Playwright, Cypress, Appium, Cucumber, Serenity BDD</div>
+                </div>
+                <div class="skill-cat">
+                    <div class="skill-cat-label">API Testing y Desarrollo:</div>
+                    <div class="skill-cat-list">REST Assured, Karate, Postman, REST APIs, CRUD, Schema Validation</div>
+                </div>
+                <div class="skill-cat">
+                    <div class="skill-cat-label">Bases de Datos:</div>
+                    <div class="skill-cat-list">MySQL, SQL</div>
+                </div>
+                <div class="skill-cat">
+                    <div class="skill-cat-label">CI/CD y DevOps:</div>
+                    <div class="skill-cat-list">Git, GitHub, GitHub Actions</div>
+                </div>
+                <div class="skill-cat">
+                    <div class="skill-cat-label">Pruebas de Rendimiento:</div>
+                    <div class="skill-cat-list">JMeter, k6, Load Testing, Stress Testing, Spike Testing, Soak Testing
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <div class="skill-cat-label">Gestión de Proyectos y Metodologías:</div>
+                    <div class="skill-cat-list">Scrum, Agile, Jira</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Proyectos</div>
+            <div class="projects-summary">
+                <div class="project-item">
+                    <strong>Playwright E2E Automation</strong>
+                    <div class="project-metrics">Tecnologías: TypeScript, Playwright</div>
+                    <ul class="exp-list">
+                        <li>Construcción de pruebas automatizadas end-to-end para aplicaciones web.</li>
+                        <li>Integración de visual regression y accessibility testing.</li>
+                        <li>Emulación de dispositivos móviles para testing responsive.</li>
+                        <li>Diseño y ejecución de más de 30 casos de prueba.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <strong>Karate API Testing</strong>
+                    <div class="project-metrics">Tecnologías: Java, Karate, JUnit 5</div>
+                    <ul class="exp-list">
+                        <li>Creación de suites de pruebas de API utilizando prácticas BDD.</li>
+                        <li>Pruebas de múltiples endpoints REST y operaciones CRUD.</li>
+                        <li>Implementación de negative testing y validación de schema.</li>
+                        <li>Elaboración de más de 25 casos de prueba de API.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <strong>Cypress E2E Automation</strong>
+                    <div class="project-metrics">Tecnologías: TypeScript, Cypress</div>
+                    <ul class="exp-list">
+                        <li>Desarrollo de suites de pruebas end-to-end para aplicaciones web.</li>
+                        <li>Adopción de Page Object Model y comandos personalizados reutilizables.</li>
+                        <li>Uso de API interception para testing de aplicaciones.</li>
+                        <li>Entrega de más de 20 casos de prueba.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <strong>Selenium Web Automation</strong>
+                    <div class="project-metrics">Tecnologías: Java, Selenium, TestNG</div>
+                    <ul class="exp-list">
+                        <li>Diseño de suites de pruebas web utilizando Page Object Model.</li>
+                        <li>Configuración de WebDriverManager para automatización de navegadores.</li>
+                        <li>Integración de Allure Reports para reportes de ejecución de pruebas.</li>
+                        <li>Finalización de más de 15 casos de prueba.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <strong>Pipeline CI/CD de Test Automation</strong>
+                    <div class="project-metrics">Tecnologías: GitHub Actions</div>
+                    <ul class="exp-list">
+                        <li>Orquestación de ejecución automatizada de pruebas unitarias, API, UI y de rendimiento.</li>
+                        <li>Construcción de un pipeline CI/CD multi-stage.</li>
+                        <li>Incorporación de testing automatizado en el flujo de desarrollo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Proyectos Adicionales</div>
+            <ul class="clean-list">
+                <li><strong>REST Assured API Testing</strong> — Java, REST Assured, Cucumber</li>
+                <li><strong>k6 Performance Testing</strong> — JavaScript, k6</li>
+                <li><strong>Serenity BDD Catálogo</strong> — Java, Serenity BDD</li>
+                <li><strong>JMeter Performance Testing</strong> — JMeter</li>
+                <li><strong>Appium Mobile Testing</strong> — Java, Appium</li>
+                <li><strong>FlowersApp</strong> — Android / Desarrollo Móvil</li>
+                <li><strong>Database Testing</strong> — MySQL, SQL</li>
+                <li><strong>Docker Testing</strong> — Docker</li>
+                <li><strong>HotelReact</strong> — Desarrollo Web / Testing</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Experiencia Profesional</div>
+            <div class="exp-item">
+                <div class="exp-row">
+                    <span class="exp-role">Estudiante de Tiempo Completo</span>
+                </div>
+                <div class="exp-company">Universidad de Nariño &amp; Uniremington | 2016 – 2023</div>
+                <ul class="exp-list">
+                    <li>Completé la carrera de Ingeniería Agrónoma (2016 – 2021).</li>
+                    <li>Transición a Tecnología en Desarrollo de Software (2023 – Actualidad).</li>
+                    <li>Desarrollo de más de 14 proyectos académicos y personales en automatización de pruebas, API testing y desarrollo de software.</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-row">
+                    <span class="exp-role">Ingeniera Agrónoma — Uniflor</span>
+                </div>
+                <div class="exp-company">Rionegro, Antioquia | 08/2023 – 05/2026</div>
+                <ul class="exp-list">
+                    <li>Planificación y ejecución de más de 10 proyectos enfocados en mejora de procesos y optimización operativa, reduciendo tiempos de inactividad aproximadamente un 15%.</li>
+                    <li>Análisis de datos de producción en más de 5 frentes de trabajo para apoyar la toma de decisiones y ejecución de proyectos.</li>
+                    <li>Coordinación y seguimiento de actividades con más de 3 equipos técnicos, asegurando la entrega oportuna de hitos del proyecto.</li>
+                    <li>Monitoreo del progreso y requisitos de más de 5 proyectos concurrentes, reportando resultados a gerencia semanalmente.</li>
+                    <li>Aplicación de habilidades analíticas y organizacionales para rediseñar más de 4 flujos de trabajo internos, mejorando la eficiencia de los procesos.</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-row">
+                    <span class="exp-role">Asistente Administrativa — Registraduría Nacional</span>
+                </div>
+                <div class="exp-company">Tumaco, Nariño | 08/2015 – 07/2016</div>
+                <ul class="exp-list">
+                    <li>Gestión y organización de más de 500 documentos y registros ciudadanos, manteniendo un archivo preciso y accesible.</li>
+                    <li>Control y seguimiento de más de 50 procesos administrativos mensuales, asegurando el cumplimiento de plazos institucionales.</li>
+                    <li>Mantenimiento de registros precisos e información para más de 200 casos, logrando alta confiabilidad en los datos.</li>
+                    <li>Atención al ciudadano y soporte administrativo a más de 30 ciudadanos diariamente, resolviendo consultas y derivando solicitudes.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Educación</div>
+            <div class="edu-item">
+                <div class="exp-role">Tecnología en Desarrollo de Software</div>
+                <div class="exp-company">Uniremington | 2023 – Actualidad</div>
+            </div>
+            <div class="edu-item">
+                <div class="exp-role">Ingeniería Agrónoma</div>
+                <div class="exp-company">Universidad de Nariño | 2016 – 2021</div>
+            </div>
+            <div class="edu-item">
+                <div class="exp-role">Técnica en Asistente Administrativa</div>
+                <div class="exp-company">SENA | 2013 – 2015</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Certificaciones</div>
+            <ul class="clean-list">
+                <li><strong>ISTQB Certified Tester – Foundation Level (CTFL)</strong></li>
+                <li>Fundamentos de Pruebas de Software</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Idiomas</div>
+            <ul class="clean-list">
+                <li>Español: Nativo</li>
+                <li>Inglés: B1 – Intermedio (conversacional, en mejora continua hacia B2)</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Conocimientos Adicionales</div>
+            <ul class="clean-list">
+                <li><strong>IA y Herramientas de Desarrollo:</strong> AI/LLM Fundamentals, Prompt Engineering, RAG Concepts,
+                    AI APIs, Semantic Search, GitHub Copilot</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('exportPdf').addEventListener('click', function () {
+            var originalTitle = document.title;
+            document.title = '';
+            setTimeout(function () {
+                window.print();
+                setTimeout(function () {
+                    document.title = originalTitle;
+                }, 500);
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
