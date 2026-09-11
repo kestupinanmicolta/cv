@@ -2,1346 +2,1220 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Karen Paola Estupinan · CV QA Automation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Karen Paola Estupinan Micolta — CV</title>
+    <meta name="description" content="Software Development Technology Student | Test Automation | ISTQB Certified" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
-    </script>
     <style>
-        /* ===== RESET & BASE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --accent-light: #eff6ff;
+            --success: #10b981;
+            --border-light: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+            --transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
         }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f2f5f9;
-            color: #0b1a2e;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-primary);
             line-height: 1.6;
-            padding: 1rem;
-            min-height: 100vh;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Header */
+        header {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.875rem 0;
+        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo {
+            font-size: 1.375rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
             display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo-icon {
+            background: var(--accent);
+            color: white;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .cv-wrapper {
-            max-width: 1100px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.08);
-            overflow: hidden;
-        }
-
-        /* ===== HEADER / CONTACT ===== */
-        .header-cv {
-            background: #0b1a2e;
-            color: #fff;
-            padding: 2rem 2.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .header-left h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.2rem;
-            line-height: 1.2;
-        }
-
-        .header-left .title-role {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #94b8e8;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .header-left .title-role i {
-            color: #3b82f6;
-        }
-
-        .header-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-        }
-
-        .header-right a,
-        .header-right span {
-            color: #cbd9ed;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.2s;
-            font-weight: 400;
-        }
-
-        .header-right a:hover {
-            color: #7bb3ff;
-        }
-
-        .header-right i {
-            width: 18px;
-            color: #3b82f6;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        .btn-pdf {
-            background: #3b82f6;
-            color: #fff !important;
-            border: none;
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.25s;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
-            margin-top: 0.2rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn-pdf:hover {
-            background: #2563eb;
-            transform: translateY(-1px);
-        }
-
-        .btn-pdf i {
-            color: #fff;
-        }
-
-        /* ===== MAIN BODY ===== */
-        .main-body {
-            padding: 2.5rem 2.5rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2.5rem;
-        }
-
-        /* ===== LEFT COLUMN ===== */
-        .left-col {}
-
-        .section {
-            margin-bottom: 2rem;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        .section-title {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #3b82f6;
-            margin-bottom: 0.6rem;
-            padding-bottom: 0.3rem;
-            border-bottom: 2px solid #3b82f6;
-            display: inline-block;
-        }
-
-        .profile-text {
-            font-size: 0.9rem;
-            color: #1e2f41;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        /* Timeline */
-        .tl {
-            padding-left: 1.2rem;
-            border-left: 2px solid #e9edf2;
-            margin-bottom: 1.2rem;
-        }
-
-        .tl:last-child {
-            margin-bottom: 0;
-        }
-
-        .tl-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-        }
-
-        .tl-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: #0b1a2e;
-        }
-
-        .tl-date {
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #3b82f6;
-            background: rgba(59, 130, 246, 0.08);
-            padding: 0.1rem 0.6rem;
-            border-radius: 40px;
-            white-space: nowrap;
-        }
-
-        .tl-loc {
-            font-size: 0.75rem;
-            color: #5f6f84;
-            margin-bottom: 0.2rem;
-        }
-
-        .tl-desc {
-            font-size: 0.82rem;
-            color: #2c3e50;
-            padding-left: 1rem;
-            list-style: none;
-        }
-
-        .tl-desc li {
-            position: relative;
-            padding-left: 1rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .tl-desc li::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: #3b82f6;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .skill-tag {
-            background: #f8fafc;
-            border: 1px solid #e9edf2;
-            border-radius: 40px;
-            padding: 0.2rem 0.7rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #1e2f41;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            transition: all 0.2s;
-        }
-
-        .skill-tag:hover {
-            border-color: #3b82f6;
-            background: #f0f7ff;
-        }
-
-        .skill-tag i {
-            color: #3b82f6;
-            font-size: 0.7rem;
-        }
-
-        /* IA */
-        .ia-list {
-            font-size: 0.82rem;
-            color: #2c3e50;
-            list-style: none;
-            padding-left: 0;
-            margin-top: 0.3rem;
-        }
-
-        .ia-list li {
-            padding-left: 1.2rem;
-            position: relative;
-            margin-bottom: 0.2rem;
-        }
-
-        .ia-list li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #3b82f6;
-        }
-
-        /* ===== RIGHT COLUMN ===== */
-        .right-col {}
-
-        .right-col .section {
-            margin-bottom: 1.8rem;
-        }
-
-        .cert-item {
-            background: #f8fafc;
-            padding: 0.8rem 1rem;
-            border-radius: 12px;
-            border-left: 3px solid #3b82f6;
-            margin-bottom: 0.8rem;
-        }
-
-        .cert-item .cert-name {
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: #0b1a2e;
-        }
-
-        .cert-item .cert-desc {
-            font-size: 0.75rem;
-            color: #5f6f84;
-        }
-
-        .cert-item .cert-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.7rem;
-            color: #3b82f6;
-            text-decoration: none;
-            margin-top: 0.2rem;
-            font-weight: 500;
-        }
-
-        .cert-item .cert-link:hover {
-            color: #2563eb;
-        }
-
-        .avail-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-
-        .avail-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.82rem;
-            color: #1e2f41;
-        }
-
-        .avail-item i {
-            color: #059669;
-            font-size: 0.8rem;
-        }
-
-        .avail-note {
-            font-size: 0.75rem;
-            color: #5f6f84;
-            margin-top: 0.5rem;
-        }
-
-        .avail-note i {
-            color: #3b82f6;
-            margin-right: 0.3rem;
-        }
-
-        /* ===== PORTFOLIO SECTION ===== */
-        .portfolio-wrapper {
-            padding: 2rem 2.5rem 2.5rem;
-            background: #fafbfc;
-            border-top: 1px solid #e9edf2;
-        }
-
-        .portfolio-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .portfolio-header h2 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #0b1a2e;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .portfolio-header h2 i {
-            color: #3b82f6;
-        }
-
-        .portfolio-stats-mini {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.75rem;
-            color: #5f6f84;
-        }
-
-        .portfolio-stats-mini span {
-            font-weight: 700;
-            color: #0b1a2e;
-        }
-
-        /* Tabs */
-        .tabs {
-            display: flex;
-            gap: 0.25rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.2rem;
-        }
-
-        .tab-btn {
-            padding: 0.4rem 1rem;
-            border: none;
-            background: transparent;
-            color: #4f5f74;
-            font-weight: 600;
-            font-size: 0.75rem;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .tab-btn:hover {
-            background: #e9edf2;
-            color: #0b1a2e;
-        }
-
-        .tab-btn.active {
-            background: #0b1a2e;
-            color: #fff;
-        }
-
-        .tab-btn .count {
-            background: rgba(255, 255, 255, 0.20);
-            color: inherit;
-            font-size: 0.55rem;
-            font-weight: 700;
-            padding: 0.05rem 0.4rem;
-            border-radius: 40px;
-        }
-
-        .tab-btn:not(.active) .count {
-            background: #e9edf2;
-            color: #4f5f74;
-        }
-
-        /* Grid projects */
-        .category-content {
-            display: none;
-        }
-
-        .category-content.active {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 1rem;
-        }
-
-        /* Project card */
-        .project-card {
-            background: #fff;
-            border: 1px solid #e9edf2;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            border-color: #cbd9ed;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-        }
-
-        .card-header {
-            padding: 0.8rem 0.8rem 0.3rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-        }
-
-        .card-icon {
             width: 36px;
             height: 36px;
-            border-radius: 10px;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .social-icons { display: flex; gap: 0.75rem; }
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .card-icon.api {
-            background: #dbeafe;
-            color: #1d4ed8;
-        }
-        .card-icon.ui {
-            background: #e0f2fe;
-            color: #0284c7;
-        }
-        .card-icon.perf {
-            background: #fef3c7;
-            color: #b45309;
-        }
-        .card-icon.mobile {
-            background: #ede9fe;
-            color: #7c3aed;
-        }
-        .card-icon.cicd {
-            background: #fce7f3;
-            color: #be185d;
-        }
-        .card-icon.db {
-            background: #cffafe;
-            color: #0e7490;
-        }
-        .card-icon.devops {
-            background: #e0e7ff;
-            color: #4338ca;
-        }
-
-        .card-info .title {
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: #0b1a2e;
-        }
-
-        .card-info .tech {
-            font-size: 0.6rem;
-            color: #5f6f84;
-        }
-
-        .card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.2rem;
-            margin-top: 0.1rem;
-        }
-
-        .card-tag {
-            font-size: 0.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 0.05rem 0.4rem;
-            border-radius: 40px;
-            background: #f1f5f9;
-            color: #2c3e50;
-        }
-
-        .card-tag.api {
-            background: #dbeafe;
-            color: #1d4ed8;
-        }
-        .card-tag.ui {
-            background: #e0f2fe;
-            color: #0284c7;
-        }
-        .card-tag.perf {
-            background: #fef3c7;
-            color: #b45309;
-        }
-        .card-tag.mobile {
-            background: #ede9fe;
-            color: #7c3aed;
-        }
-        .card-tag.cicd {
-            background: #fce7f3;
-            color: #be185d;
-        }
-        .card-tag.db {
-            background: #cffafe;
-            color: #0e7490;
-        }
-        .card-tag.bdd {
-            background: #fef9c3;
-            color: #854d0e;
-        }
-        .card-tag.e2e {
-            background: #e0e7ff;
-            color: #3730a3;
-        }
-        .card-tag.pom {
-            background: #f1f5f9;
-            color: #334155;
-        }
-
-        .card-body {
-            padding: 0.2rem 0.8rem 0.5rem;
-            flex: 1;
-        }
-
-        .card-body .desc {
-            font-size: 0.7rem;
-            color: #334155;
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .card-metrics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-top: 0.3rem;
-        }
-
-        .metric {
-            display: flex;
-            align-items: center;
-            gap: 0.2rem;
-            font-size: 0.6rem;
-            color: #5f6f84;
-        }
-
-        .metric i {
-            color: #3b82f6;
-            font-size: 0.55rem;
-        }
-        .metric strong {
-            color: #0b1a2e;
-            font-weight: 700;
-        }
-
-        .card-footer {
-            padding: 0.4rem 0.8rem 0.6rem;
-            border-top: 1px solid #e9edf2;
-            background: #fafbfc;
-            display: flex;
-            gap: 0.3rem;
-            flex-wrap: wrap;
-        }
-
-        .card-btn {
-            font-size: 0.6rem;
-            font-weight: 600;
-            padding: 0.2rem 0.6rem;
-            border-radius: 40px;
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
             text-decoration: none;
+        }
+        .social-icons a:hover { color: var(--accent); background: var(--accent-light); }
+        .lang-btn {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background: var(--bg-body);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .lang-btn:hover:not(.active) { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+
+
+        /* Sections */
+        section { padding: 3.5rem 0; }
+        section + section { border-top: 1px solid var(--border-light); }
+        .section-header { margin-bottom: 2rem; }
+        .section-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.375rem; }
+        .section-subtitle { font-size: 0.9375rem; color: var(--text-muted); }
+
+        /* Hero */
+        .hero { padding: 4rem 0 3rem; }
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.2rem;
-            transition: all 0.2s;
-            flex: 1 0 auto;
+            gap: 0.5rem;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(37,99,235,0.15);
+        }
+        .hero-badge i { font-size: 0.75rem; }
+        .hero h1 { font-size: 2.75rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.15; margin-bottom: 1.25rem; }
+        .hero h1 span { color: var(--accent); }
+        .hero-description { font-size: 1.0625rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7; max-width: 540px; }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(37,99,235,0.35); }
+        .btn-outline { background: transparent; border-color: var(--accent); color: var(--accent); }
+        .btn-outline:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .skill-category {
+            background: var(--bg-card);
+            padding: 1.25rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+        .skill-category:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+        .skill-category-title {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .skill-category-title i { color: var(--accent); font-size: 0.875rem; }
+        .skill-chips { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+        .skill-chip {
+            background: var(--bg-body);
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .skill-chip:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--border-light); }
+        .timeline-item { position: relative; padding-bottom: 2rem; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg-body);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-year {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-light);
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
+        }
+        .timeline-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+        .timeline-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-hover); }
+        .timeline-title { font-size: 1.1875rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .timeline-company { color: var(--text-muted); font-weight: 500; font-size: 0.9375rem; margin-bottom: 0.75rem; }
+        .timeline-desc { color: var(--text-secondary); font-size: 0.9375rem; margin-bottom: 1rem; line-height: 1.6; }
+        .timeline-list { list-style: none; }
+        .timeline-list li {
+            display: flex;
+            gap: 0.625rem;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .timeline-list li i { color: var(--accent); font-size: 0.625rem; margin-top: 0.35rem; flex-shrink: 0; }
+
+        /* Projects */
+        .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        .project-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            padding: 1.5rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-hover); transform: translateY(-2px); }
+        .project-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
             justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
         }
+        .project-icon.icon-blue { background: #eff6ff; color: #2563eb; }
+        .project-icon.icon-green { background: #ecfdf5; color: #059669; }
+        .project-icon.icon-purple { background: #f5f3ff; color: #7c3aed; }
+        .project-icon.icon-orange { background: #fff7ed; color: #ea580c; }
+        .project-icon.icon-teal { background: #f0fdfa; color: #0d9488; }
+        .project-title { font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem; }
+        .project-desc { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6; flex: 1; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem; }
+        .project-tag {
+            background: var(--bg-body);
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            border: 1px solid var(--border-light);
+        }
+        .project-links { display: flex; gap: 0.5rem; }
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+        }
+        .project-link.repo { background: var(--accent); color: white; }
+        .project-link.repo:hover { background: var(--accent-dark); }
+        .project-link.pages { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+        .project-link.pages:hover { background: var(--accent); color: white; }
+        .project-link i { font-size: 0.75rem; }
 
-        .card-btn.repo {
-            background: #0b1a2e;
-            color: #fff;
+        /* Education */
+        .education-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 1rem;
         }
-        .card-btn.repo:hover {
-            background: #1a3652;
+        .education-card:last-child { margin-bottom: 0; }
+        .education-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-light);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            flex-shrink: 0;
         }
-        .card-btn.report {
-            background: #fff;
-            color: #0b1a2e;
-            border: 1px solid #e9edf2;
+        .education-info { flex: 1; }
+        .education-year {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-light);
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
         }
-        .card-btn.report:hover {
-            background: #f1f5f9;
-        }
-        .card-btn.live {
-            background: #fff;
-            color: #059669;
-            border: 1px solid #059669;
-        }
-        .card-btn.live:hover {
-            background: #059669;
-            color: #fff;
-        }
+        .education-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.375rem; }
+        .education-school { color: var(--text-muted); font-weight: 500; margin-bottom: 0.75rem; }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 0.8rem;
-            font-size: 0.65rem;
-            color: #8a9aa8;
-            background: #ffffff;
-            border-top: 1px solid #e9edf2;
+        /* Certification */
+        .cert-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: 1.75rem;
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .main-body {
-                grid-template-columns: 1fr;
-                padding: 2rem;
-                gap: 1.5rem;
-            }
-            .header-cv {
-                padding: 1.8rem 2rem;
-            }
-            .portfolio-wrapper {
-                padding: 1.5rem 2rem;
-            }
+        .cert-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            flex-shrink: 0;
         }
+        .cert-info { flex: 1; }
+        .cert-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.375rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cert-title i { color: #f59e0b; }
+        .cert-desc { color: var(--text-secondary); line-height: 1.7; font-size: 0.9375rem; }
 
+        /* Languages */
+        .lang-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .lang-chip {
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .lang-chip strong { color: var(--text-primary); }
+
+        /* Additional */
+        .additional-box {
+            background: var(--accent-light);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(37,99,235,0.1);
+            padding: 1.25rem 1.5rem;
+            margin-top: 1rem;
+        }
+        .additional-box h3 {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            margin-bottom: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .additional-box h3 i { color: var(--accent); }
+        .additional-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .additional-tag {
+            background: white;
+            padding: 0.375rem 0.875rem;
+            border-radius: 9999px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+        .additional-tag:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+        /* Footer */
+        footer { text-align: center; padding: 2.5rem 0; border-top: 1px solid var(--border-light); }
+        footer p { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; }
+        footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        footer a:hover { text-decoration: underline; }
+
+        /* Language toggle */
+        .lang-es { display: block; }
+        .lang-en { display: none; }
+        body.english .lang-es { display: none; }
+        body.english .lang-en { display: block; }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            body {
-                padding: 0.5rem;
-            }
-
-            .header-cv {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 1.5rem;
-                gap: 1rem;
-            }
-
-            .header-left {
-                text-align: center;
-            }
-
-            .header-left h1 {
-                font-size: 1.8rem;
-            }
-
-            .header-left .title-role {
-                justify-content: center;
-                font-size: 0.9rem;
-            }
-
-            .header-right {
-                align-items: center;
-                font-size: 0.8rem;
-                gap: 0.3rem;
-            }
-
-            .header-right a,
-            .header-right span {
-                justify-content: center;
-            }
-
-            .btn-pdf {
-                width: 100%;
-                justify-content: center;
-                padding: 0.5rem;
-                font-size: 0.8rem;
-            }
-
-            .main-body {
-                padding: 1.5rem;
-                gap: 1.5rem;
-            }
-
-            .portfolio-wrapper {
-                padding: 1rem 1.5rem 1.5rem;
-            }
-
-            .portfolio-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .portfolio-stats-mini {
-                gap: 1rem;
-                font-size: 0.7rem;
-            }
-
-            .tabs {
-                gap: 0.15rem;
-                justify-content: center;
-            }
-
-            .tab-btn {
-                font-size: 0.65rem;
-                padding: 0.3rem 0.7rem;
-            }
-
-            .category-content.active {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-text {
-                font-size: 0.85rem;
-            }
-
-            .tl-title {
-                font-size: 0.9rem;
-            }
-
-            .cert-item {
-                padding: 0.6rem 0.8rem;
-            }
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .education-card { flex-direction: column; align-items: center; text-align: center; }
+            .cert-card { flex-direction: column; text-align: center; }
         }
 
-        @media (max-width: 480px) {
-            .header-left h1 {
-                font-size: 1.5rem;
-            }
-
-            .header-left .title-role {
-                font-size: 0.8rem;
-                flex-wrap: wrap;
-            }
-
-            .header-right {
-                font-size: 0.75rem;
-            }
-
-            .main-body {
-                padding: 1rem;
-            }
-
-            .portfolio-wrapper {
-                padding: 0.8rem 1rem 1.2rem;
-            }
-
-            .tab-btn {
-                font-size: 0.6rem;
-                padding: 0.2rem 0.5rem;
-            }
-
-            .card-header {
-                flex-wrap: wrap;
-            }
-
-            .card-icon {
-                width: 30px;
-                height: 30px;
-                font-size: 0.75rem;
-            }
-
-            .card-info .title {
-                font-size: 0.8rem;
-            }
-
-            .card-btn {
-                font-size: 0.55rem;
-                padding: 0.15rem 0.5rem;
-            }
-        }
-
+        /* Print */
+        @page { size: A4; margin: 15mm 16mm; }
         @media print {
-            body {
-                background: #fff;
-                padding: 0;
-            }
-            .cv-wrapper {
-                border-radius: 0;
-                box-shadow: none;
-            }
-            .header-cv {
-                background: #0b1a2e !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .btn-pdf {
-                display: none !important;
-            }
-            .project-card {
-                break-inside: avoid;
-                border-color: #ccc;
-            }
-            .card-btn.repo {
-                background: #0b1a2e !important;
-                color: #fff !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .card-btn.report {
-                background: #fff !important;
-                border: 1px solid #ccc !important;
-            }
-            .card-btn.live {
-                background: #fff !important;
-                border: 1px solid #059669 !important;
-                color: #059669 !important;
-            }
-            .tab-btn.active {
-                background: #0b1a2e !important;
-                color: #fff !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .skill-tag {
-                background: #f8fafc !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .cert-item {
-                background: #f8fafc !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .portfolio-wrapper {
-                background: #fafbfc !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+            @page { size: A4; margin: 15mm 16mm; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            html, body { background: #fff !important; width: 100% !important; }
+            body { margin: 0 !important; padding: 0 !important; display: block; font-size: 9.5pt; line-height: 1.4; }
+            header { position: static !important; background: #fff !important; backdrop-filter: none !important; border-bottom: 2px solid #0f172a !important; padding: 0.5rem 0 !important; }
+            .hero { padding: 1.5rem 0 !important; }
+            .hero h1 { font-size: 1.6rem !important; }
+            .hero-description { font-size: 9pt !important; }
+            section { padding: 1rem 0 !important; }
+            section + section { border-top: 1px solid #e2e8f0 !important; }
+            .section-title { font-size: 12pt !important; }
+            .skills-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 0.5rem !important; }
+            .skill-category { padding: 0.6rem !important; }
+            .skill-chip { font-size: 7pt !important; padding: 0.2rem 0.4rem !important; }
+            .timeline { padding-left: 1.5rem !important; }
+            .timeline-card { padding: 0.8rem !important; }
+            .timeline-title { font-size: 10pt !important; }
+            .timeline-company { font-size: 8.5pt !important; }
+            .timeline-list li { font-size: 8pt !important; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.5rem !important; }
+            .project-card { padding: 0.8rem !important; }
+            .project-card:hover { transform: none !important; box-shadow: none !important; }
+            .project-title { font-size: 9pt !important; }
+            .project-desc { font-size: 8pt !important; }
+            .project-tag { font-size: 7pt !important; }
+            .education-card { padding: 0.8rem !important; }
+            .education-title { font-size: 10pt !important; }
+            .cert-card { padding: 0.8rem !important; }
+            .cert-title { font-size: 9pt !important; }
+            .cert-desc { font-size: 8pt !important; }
+            .hero-buttons, .project-links { display: none !important; }
+            .hero-badge { font-size: 8pt !important; padding: 0.3rem 0.6rem !important; }
+            footer { display: none !important; }
+            .container { max-width: 100% !important; padding: 0 1rem !important; }
         }
     </style>
 </head>
 <body>
-    <div class="cv-wrapper" id="cv">
-
-        <!-- ===== HEADER ===== -->
-        <header class="header-cv">
-            <div class="header-left">
-                <h1>Karen Paola Estupinan Micolta</h1>
-                <div class="title-role"><i class="fas fa-code"></i> QA Automation Engineer</div>
-            </div>
-            <div class="header-right">
-                <a href="mailto:kestupinanmicolta@gmail.com"><i class="fas fa-envelope"></i> kestupinanmicolta@gmail.com</a>
-                <a href="tel:3194701032"><i class="fas fa-phone"></i> 319 470 1032</a>
-                <span><i class="fas fa-map-marker-alt"></i> Rionegro, Antioquia</span>
-                <a href="https://linkedin.com/in/karen-paola-estupinan-micolta" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/kestupinanmicolta" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <button class="btn-pdf" id="exportPdf"><i class="fas fa-file-pdf"></i> Descargar PDF</button>
-            </div>
-        </header>
-
-        <!-- ===== MAIN BODY (CV INFO) ===== -->
-        <div class="main-body">
-
-            <!-- LEFT COLUMN -->
-            <div class="left-col">
-
-                <!-- Perfil -->
-                <section class="section">
-                    <div class="section-title">Sobre Mí</div>
-                    <p class="profile-text">QA Automation Engineer con formación en Tecnología en Desarrollo de Software, especializada en testing automatizado y aseguramiento de calidad. Certificada ISTQB con experiencia en desarrollo de aplicaciones web y móviles, elaboración de planes de prueba y automatización con herramientas como Selenium, Playwright, Appium, Cypress y frameworks BDD. Apasionada por la calidad de software, la inteligencia artificial y el aprendizaje continuo.</p>
-                </section>
-
-                <!-- Experiencia -->
-                <section class="section">
-                    <div class="section-title">Experiencia Laboral</div>
-                    <div class="tl">
-                        <div class="tl-head"><span class="tl-title">Ingeniera Agrónoma</span><span class="tl-date">Ago 2023 – May 2026</span></div>
-                        <div class="tl-loc">Uniflor · Rionegro, Antioquia</div>
-                        <ul class="tl-desc">
-                            <li>Planeación y ejecución de proyectos agrícolas con enfoque en datos</li>
-                            <li>Implementación de herramientas de análisis de datos para optimización</li>
-                            <li>Liderazgo de técnicos y coordinación de actividades</li>
-                        </ul>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <span class="logo-icon">KE</span>
+                    Karen Paola Estupinan
+                </div>
+                <div class="nav-links">
+                    <div class="social-icons">
+                        <a href="https://github.com/kestupinanmicolta" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/karen-paola-estupinan-micolta/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <div class="tl">
-                        <div class="tl-head"><span class="tl-title">Asistente Administrativa</span><span class="tl-date">Ago 2015 – Jul 2016</span></div>
-                        <div class="tl-loc">Registraduría Nacional · Tumaco, Nariño</div>
-                        <ul class="tl-desc">
-                            <li>Gestión documental integral y control de información</li>
-                            <li>Atención al ciudadano y apoyo en procesos administrativos</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Educación -->
-                <section class="section">
-                    <div class="section-title">Educación</div>
-                    <div class="tl">
-                        <div class="tl-head"><span class="tl-title">Tecnología en Desarrollo de Software</span><span class="tl-date">2023 – Actualidad</span></div>
-                        <div class="tl-loc">Uniremington · Rionegro, Antioquia</div>
-                    </div>
-                    <div class="tl">
-                        <div class="tl-head"><span class="tl-title">Ingeniera Agrónoma</span><span class="tl-date">2016 – 2021</span></div>
-                        <div class="tl-loc">Universidad de Nariño · Pasto, Nariño</div>
-                    </div>
-                    <div class="tl">
-                        <div class="tl-head"><span class="tl-title">Asistente Administrativa</span><span class="tl-date">2013 – 2015</span></div>
-                        <div class="tl-loc">SENA · Tumaco, Nariño</div>
-                    </div>
-                </section>
-
-                <!-- Habilidades -->
-                <section class="section">
-                    <div class="section-title">Habilidades Técnicas</div>
-                    <div class="skills-grid">
-                        <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
-                        <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-                        <span class="skill-tag"><i class="fab fa-node-js"></i> TypeScript</span>
-                        <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
-                        <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
-                        <span class="skill-tag"><i class="fas fa-check-double"></i> Selenium</span>
-                        <span class="skill-tag"><i class="fas fa-theater-masks"></i> Playwright</span>
-                        <span class="skill-tag"><i class="fas fa-circle"></i> Cypress</span>
-                        <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Appium</span>
-                        <span class="skill-tag"><i class="fas fa-cucumber"></i> Cucumber</span>
-                        <span class="skill-tag"><i class="fas fa-chalkboard"></i> Serenity</span>
-                        <span class="skill-tag"><i class="fas fa-bolt"></i> Karate</span>
-                        <span class="skill-tag"><i class="fas fa-plug"></i> REST Assured</span>
-                        <span class="skill-tag"><i class="fas fa-tachometer-alt"></i> JMeter</span>
-                        <span class="skill-tag"><i class="fas fa-chart-line"></i> k6</span>
-                        <span class="skill-tag"><i class="fab fa-github"></i> Actions</span>
-                        <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
-                        <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
-                        <span class="skill-tag"><i class="fas fa-brain"></i> Jira</span>
-                        <span class="skill-tag"><i class="fas fa-clipboard-list"></i> TestRail</span>
-                        <span class="skill-tag"><i class="fab fa-jenkins"></i> Jenkins</span>
-                        <span class="skill-tag"><i class="fas fa-brain"></i> OpenAI API</span>
-                        <span class="skill-tag"><i class="fas fa-code"></i> Copilot</span>
-                    </div>
-                </section>
-
-                <!-- IA -->
-                <section class="section">
-                    <div class="section-title">Inteligencia Artificial</div>
-                    <div class="skills-grid" style="margin-bottom:0.4rem;">
-                        <span class="skill-tag"><i class="fas fa-brain"></i> IA y ML</span>
-                        <span class="skill-tag"><i class="fas fa-language"></i> LLM</span>
-                        <span class="skill-tag"><i class="fas fa-terminal"></i> Prompt Engineering</span>
-                        <span class="skill-tag"><i class="fas fa-plug"></i> APIs de IA</span>
-                        <span class="skill-tag"><i class="fab fa-java"></i> IA en Java</span>
-                        <span class="skill-tag"><i class="fas fa-database"></i> RAG</span>
-                        <span class="skill-tag"><i class="fas fa-code"></i> Copilot</span>
-                    </div>
-                    <ul class="ia-list">
-                        <li>Integración de APIs de OpenAI en aplicaciones Java/Spring Boot</li>
-                        <li>Implementación de patrones RAG para búsqueda semántica</li>
-                        <li>Uso de GitHub Copilot para desarrollo ágil</li>
-                    </ul>
-                </section>
-
-            </div>
-
-            <!-- RIGHT COLUMN -->
-            <div class="right-col">
-
-                <!-- Certificaciones -->
-                <section class="section">
-                    <div class="section-title">Certificaciones</div>
-                    <div class="cert-item">
-                        <div class="cert-name">ISTQB Certified Tester</div>
-                        <div class="cert-desc">Fundamentos de pruebas de software</div>
-                        <a href="https://www.credly.com/users/karen-paola-estupinan-micolta" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Ver credencial</a>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-name">Diplomado en Pruebas de Software</div>
-                        <div class="cert-desc">Calidad y automatización</div>
-                    </div>
-                </section>
-
-                <!-- Disponibilidad -->
-                <section class="section">
-                    <div class="section-title">Disponibilidad</div>
-                    <div class="avail-grid">
-                        <div class="avail-item"><i class="fas fa-check-circle"></i> Remoto</div>
-                        <div class="avail-item"><i class="fas fa-check-circle"></i> Presencial</div>
-                        <div class="avail-item"><i class="fas fa-check-circle"></i> Híbrido</div>
-                    </div>
-                    <div class="avail-note"><i class="fas fa-clock"></i> Disponibilidad inmediata</div>
-                </section>
-
-            </div>
-
-        </div>
-
-        <!-- ===== PORTFOLIO SECTION ===== -->
-        <div class="portfolio-wrapper">
-
-            <div class="portfolio-header">
-                <h2><i class="fas fa-folder-open"></i> Portafolio de Proyectos</h2>
-                <div class="portfolio-stats-mini">
-                    <span><i class="fas fa-vial"></i> 14 proyectos</span>
-                    <span><i class="fas fa-tags"></i> 6 categorías</span>
+                    <button type="button" class="lang-btn active" id="btnEs" onclick="setLang('es')">ES</button>
+                    <button type="button" class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
                 </div>
             </div>
-
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tab-btn active" data-category="all">Todos <span class="count">14</span></button>
-                <button class="tab-btn" data-category="api">API <span class="count">3</span></button>
-                <button class="tab-btn" data-category="ui">UI/E2E <span class="count">3</span></button>
-                <button class="tab-btn" data-category="mobile">Mobile <span class="count">2</span></button>
-                <button class="tab-btn" data-category="perf">Performance <span class="count">2</span></button>
-                <button class="tab-btn" data-category="cicd">CI/CD <span class="count">2</span></button>
-                <button class="tab-btn" data-category="db">Database <span class="count">1</span></button>
-            </div>
-
-            <!-- Grids -->
-            <div class="category-content active" id="cat-all"></div>
-            <div class="category-content" id="cat-api"></div>
-            <div class="category-content" id="cat-ui"></div>
-            <div class="category-content" id="cat-mobile"></div>
-            <div class="category-content" id="cat-perf"></div>
-            <div class="category-content" id="cat-cicd"></div>
-            <div class="category-content" id="cat-db"></div>
-
         </div>
+    </header>
 
-        <!-- ===== FOOTER ===== -->
-        <div class="footer">
-            2026 · Karen Paola Estupinan Micolta · QA Automation Engineer
+    <!-- ==================== SPANISH ==================== -->
+    <div class="lang-es">
+        <div id="cv-content">
+            <main class="container">
+                <div class="hero">
+                    <div class="hero-badge"><i class="fas fa-circle-check"></i> Disponible para practicas universitarias 2027-1</div>
+                    <h1>Hola, soy <span>Karen Paola Estupinan</span><br>Estudiante de Tecnologia en Desarrollo de Software</h1>
+                    <p class="hero-description">Formacion practica en desarrollo de software, automatizacion de pruebas y testing de aplicaciones web, moviles y APIs. Experiencia con Java, JavaScript, TypeScript, SQL, Selenium, Playwright, Cypress, Appium, REST Assured y Karate. ISTQB Certified Tester – Foundation Level.</p>
+                    <div class="hero-buttons">
+                        <a href="https://www.linkedin.com/in/karen-paola-estupinan-micolta/" target="_blank" class="btn"><i class="fab fa-linkedin-in"></i> Contactame</a>
+                        <a href="#portafolio" class="btn btn-outline"><i class="fas fa-arrow-down"></i> Ver proyectos</a>
+                        <button type="button" class="btn btn-outline" onclick="downloadPdf('es')"><i class="fas fa-download"></i> Descargar CV</button>
+                    </div>
+                </div>
+
+                <section id="sobre-mi">
+                    <div class="section-header">
+                        <h2 class="section-title">Sobre mi</h2>
+                        <p class="section-subtitle">Estudiante de Tecnologia en Desarrollo de Software con enfoque en QA y automatizacion</p>
+                    </div>
+                    <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Estudiante de Tecnologia en Desarrollo de Software en Uniremington, con formacion practica en desarrollo de software, automatizacion de pruebas y testing de aplicaciones web, moviles y APIs. Conocimientos en APIs REST, bases de datos, Git, CI/CD, Docker, Scrum, Agile, BDD y TDD. ISTQB Certified Tester – Foundation Level. Buscando practicas universitarias 2027-1 en desarrollo de software, automatizacion de pruebas o QA.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-robot"></i> Frameworks de Automatizacion</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Selenium</span>
+                                <span class="skill-chip">Playwright</span>
+                                <span class="skill-chip">Cypress</span>
+                                <span class="skill-chip">Appium</span>
+                                <span class="skill-chip">Serenity BDD</span>
+                                <span class="skill-chip">REST Assured</span>
+                                <span class="skill-chip">Karate</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-code"></i> Lenguajes de Programacion</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Java</span>
+                                <span class="skill-chip">TypeScript</span>
+                                <span class="skill-chip">JavaScript</span>
+                                <span class="skill-chip">SQL</span>
+                                <span class="skill-chip">Gherkin (BDD)</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-vials"></i> Testing Frameworks</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">JUnit</span>
+                                <span class="skill-chip">TestNG</span>
+                                <span class="skill-chip">Cucumber</span>
+                                <span class="skill-chip">Postman</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-infinity"></i> CI/CD &amp; DevOps</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">GitHub Actions</span>
+                                <span class="skill-chip">Git</span>
+                                <span class="skill-chip">Docker</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-tools"></i> Herramientas &amp; Plataformas</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Postman</span>
+                                <span class="skill-chip">Jira</span>
+                                <span class="skill-chip">MySQL</span>
+                                <span class="skill-chip">SQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-rocket"></i> Metodologias</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Agile/Scrum</span>
+                                <span class="skill-chip">TDD</span>
+                                <span class="skill-chip">BDD</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-chart-line"></i> Performance Testing</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">JMeter</span>
+                                <span class="skill-chip">k6</span>
+                                <span class="skill-chip">Load Testing</span>
+                                <span class="skill-chip">Stress Testing</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-mobile-alt"></i> Tipos de Testing</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">E2E Testing</span>
+                                <span class="skill-chip">API Testing</span>
+                                <span class="skill-chip">Mobile Testing</span>
+                                <span class="skill-chip">Unit Testing</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-brain"></i> IA &amp; Herramientas</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">GitHub Copilot</span>
+                                <span class="skill-chip">Prompt Engineering</span>
+                                <span class="skill-chip">AI APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiencia">
+                    <div class="section-header">
+                        <h2 class="section-title">Experiencia Profesional</h2>
+                        <p class="section-subtitle">Trayectoria academica y profesional</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2023 – Actualidad</div>
+                            <div class="timeline-card">
+                                <div class="timeline-title">Estudiante de Tecnologia en Desarrollo de Software</div>
+                                <div class="timeline-company">Uniremington</div>
+                                <ul class="timeline-list">
+                                    <li><i class="fas fa-circle"></i> Desarrollo de mas de 14 proyectos academicos y personales en automatizacion de pruebas, API testing y desarrollo de software.</li>
+                                    <li><i class="fas fa-circle"></i> Formacion en Java, JavaScript, TypeScript, SQL, Selenium, Playwright, Cypress, Appium, REST Assured y Karate.</li>
+                                    <li><i class="fas fa-circle"></i> Certificacion ISTQB Certified Tester – Foundation Level.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">08/2023 – 05/2026</div>
+                            <div class="timeline-card">
+                                <div class="timeline-title">Ingeniera Agronoma</div>
+                                <div class="timeline-company">Uniflor | Rionegro, Antioquia</div>
+                                <ul class="timeline-list">
+                                    <li><i class="fas fa-circle"></i> Planificacion y ejecucion de mas de 10 proyectos enfocados en mejora de procesos y optimizacion operativa, reduciendo tiempos de inactividad aproximadamente un 15%.</li>
+                                    <li><i class="fas fa-circle"></i> Analisis de datos de produccion en mas de 5 frentes de trabajo para apoyar la toma de decisiones.</li>
+                                    <li><i class="fas fa-circle"></i> Coordinacion y seguimiento de actividades con mas de 3 equipos tecnicos, asegurando la entrega oportuna de hitos del proyecto.</li>
+                                    <li><i class="fas fa-circle"></i> Monitoreo del progreso y requisitos de mas de 5 proyectos concurrentes, reportando resultados a gerencia semanalmente.</li>
+                                    <li><i class="fas fa-circle"></i> Aplicacion de habilidades analiticas y organizacionales para redisenar mas de 4 flujos de trabajo internos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">08/2015 – 07/2016</div>
+                            <div class="timeline-card">
+                                <div class="timeline-title">Asistente Administrativa</div>
+                                <div class="timeline-company">Registraduria Nacional | Tumaco, Narino</div>
+                                <ul class="timeline-list">
+                                    <li><i class="fas fa-circle"></i> Gestion y organizacion de mas de 500 documentos y registros ciudadanos, manteniendo un archivo preciso y accesible.</li>
+                                    <li><i class="fas fa-circle"></i> Control y seguimiento de mas de 50 procesos administrativos mensuales, asegurando el cumplimiento de plazos institucionales.</li>
+                                    <li><i class="fas fa-circle"></i> Atencion al ciudadano y soporte administrativo a mas de 30 ciudadanos diariamente.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="portafolio">
+                    <div class="section-header">
+                        <h2 class="section-title">Proyectos Destacados</h2>
+                        <p class="section-subtitle">Portafolio de automatizacion de pruebas en diferentes frameworks</p>
+                    </div>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-blue"><i class="fab fa-js-square"></i></div>
+                                <div class="project-title">Playwright E2E Automation</div>
+                            </div>
+                            <p class="project-desc">Pruebas E2E con visual regression, accessibility testing y mobile emulation. Mas de 30 casos de prueba.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Playwright</span>
+                                <span class="project-tag">TypeScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/playwright-ecommerce" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/playwright-ecommerce/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Reporte</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-green"><i class="fas fa-code"></i></div>
+                                <div class="project-title">Karate API Testing</div>
+                            </div>
+                            <p class="project-desc">Suite BDD de testing API con negative testing y schema validation. Mas de 25 casos de prueba.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Karate</span>
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">JUnit 5</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/karate-api-testing" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/karate-api-testing/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Reporte</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-purple"><i class="fas fa-cogs"></i></div>
+                                <div class="project-title">Cypress E2E Automation</div>
+                            </div>
+                            <p class="project-desc">Testing E2E con Page Objects, custom commands y API intercepting. Mas de 20 casos de prueba.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Cypress</span>
+                                <span class="project-tag">TypeScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/cypress-ecommerce" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/cypress-ecommerce/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Reporte</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-orange"><i class="fas fa-bolt"></i></div>
+                                <div class="project-title">Selenium Web Automation</div>
+                            </div>
+                            <p class="project-desc">Automatizacion web con POM, Allure Reports y WebDriverManager. Mas de 15 casos de prueba.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Selenium</span>
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">TestNG</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/selenium-web-automation" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/selenium-web-automation/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Reporte</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-teal"><i class="fas fa-plug"></i></div>
+                                <div class="project-title">REST Assured API Testing</div>
+                            </div>
+                            <p class="project-desc">CRUD completo con schema validation y negative test scenarios.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">REST Assured</span>
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">Cucumber</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/api-testing-rest-assured" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/api-testing-rest-assured/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Reporte</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-teal"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="project-title">k6 Performance Testing</div>
+                            </div>
+                            <p class="project-desc">Load, stress, spike y soak testing con metricas personalizadas.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">k6</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/performance-testing-k6" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/performance-testing-k6/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Reporte</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-blue"><i class="fas fa-users"></i></div>
+                                <div class="project-title">CI/CD Test Automation Pipeline</div>
+                            </div>
+                            <p class="project-desc">Pipeline multi-stage con unit, API, UI y performance tests.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">GitHub Actions</span>
+                                <span class="project-tag">CI/CD</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/qa-ci-cd-pipeline" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/qa-ci-cd-pipeline/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Reporte</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-purple"><i class="fas fa-eye"></i></div>
+                                <div class="project-title">Serenity BDD Catalogo</div>
+                            </div>
+                            <p class="project-desc">Testing BDD con Screenplay pattern y Gherkin en espanol.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Serenity BDD</span>
+                                <span class="project-tag">Java</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/serenitybdd-catalogo" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/serenitybdd-catalogo/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Reporte</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="educacion">
+                    <div class="section-header">
+                        <h2 class="section-title">Educacion</h2>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="education-info">
+                            <div class="education-year">2023 – Actualidad</div>
+                            <h3 class="education-title">Tecnologia en Desarrollo de Software</h3>
+                            <p class="education-school">Uniremington</p>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon"><i class="fas fa-seedling"></i></div>
+                        <div class="education-info">
+                            <div class="education-year">2016 – 2021</div>
+                            <h3 class="education-title">Ingenieria Agronoma</h3>
+                            <p class="education-school">Universidad de Narino</p>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="education-info">
+                            <div class="education-year">2013 – 2015</div>
+                            <h3 class="education-title">Tecnica en Asistente Administrativa</h3>
+                            <p class="education-school">SENA</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="certificaciones">
+                    <div class="section-header">
+                        <h2 class="section-title">Certificaciones</h2>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-award"></i></div>
+                        <div class="cert-info">
+                            <h3 class="cert-title"><i class="fas fa-certificate"></i> ISTQB Certified Tester – Foundation Level (CTFL)</h3>
+                            <p class="cert-desc">Certificacion internacional en fundamentos de pruebas de software, que cubre procesos de testing, tecnicas, gestion de pruebas y mejores practicas de calidad en el desarrollo de software.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="idiomas">
+                    <div class="section-header">
+                        <h2 class="section-title">Idiomas</h2>
+                    </div>
+                    <div class="lang-chips">
+                        <span class="lang-chip"><strong>Espanol:</strong> Nativo</span>
+                        <span class="lang-chip"><strong>Ingles:</strong> B1 – Intermedio (conversacional, en mejora continua hacia B2)</span>
+                    </div>
+                </section>
+            </main>
         </div>
-
     </div>
-    <!-- end cv-wrapper -->
+
+    <!-- ==================== ENGLISH ==================== -->
+    <div class="lang-en">
+        <div id="cv-content">
+            <main class="container">
+                <div class="hero">
+                    <div class="hero-badge"><i class="fas fa-circle-check"></i> Available for university internship 2027-1</div>
+                    <h1>Hi, I'm <span>Karen Paola Estupinan</span><br>Software Development Technology Student</h1>
+                    <p class="hero-description">Practical training in software development, test automation and testing of web, mobile and API applications. Experience with Java, JavaScript, TypeScript, SQL, Selenium, Playwright, Cypress, Appium, REST Assured and Karate. ISTQB Certified Tester – Foundation Level.</p>
+                    <div class="hero-buttons">
+                        <a href="https://www.linkedin.com/in/karen-paola-estupinan-micolta/" target="_blank" class="btn"><i class="fab fa-linkedin-in"></i> Contact me</a>
+                        <a href="#portafolio" class="btn btn-outline"><i class="fas fa-arrow-down"></i> View projects</a>
+                        <button type="button" class="btn btn-outline" onclick="downloadPdf('en')"><i class="fas fa-download"></i> Download CV</button>
+                    </div>
+                </div>
+
+                <section id="sobre-mi">
+                    <div class="section-header">
+                        <h2 class="section-title">About me</h2>
+                        <p class="section-subtitle">Software Development Technology student focused on QA and automation</p>
+                    </div>
+                    <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Software Development Technology student at Uniremington, with practical training in software development, test automation and testing of web, mobile and API applications. Knowledge of REST APIs, databases, Git, CI/CD, Docker, Scrum, Agile, BDD and TDD. ISTQB Certified Tester – Foundation Level. Seeking a 2027-1 university internship in software development, test automation or QA.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-robot"></i> Automation Frameworks</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Selenium</span>
+                                <span class="skill-chip">Playwright</span>
+                                <span class="skill-chip">Cypress</span>
+                                <span class="skill-chip">Appium</span>
+                                <span class="skill-chip">Serenity BDD</span>
+                                <span class="skill-chip">REST Assured</span>
+                                <span class="skill-chip">Karate</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-code"></i> Programming Languages</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Java</span>
+                                <span class="skill-chip">TypeScript</span>
+                                <span class="skill-chip">JavaScript</span>
+                                <span class="skill-chip">SQL</span>
+                                <span class="skill-chip">Gherkin (BDD)</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-vials"></i> Testing Frameworks</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">JUnit</span>
+                                <span class="skill-chip">TestNG</span>
+                                <span class="skill-chip">Cucumber</span>
+                                <span class="skill-chip">Postman</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-infinity"></i> CI/CD &amp; DevOps</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">GitHub Actions</span>
+                                <span class="skill-chip">Git</span>
+                                <span class="skill-chip">Docker</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-tools"></i> Tools &amp; Platforms</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Postman</span>
+                                <span class="skill-chip">Jira</span>
+                                <span class="skill-chip">MySQL</span>
+                                <span class="skill-chip">SQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-rocket"></i> Methodologies</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Agile/Scrum</span>
+                                <span class="skill-chip">TDD</span>
+                                <span class="skill-chip">BDD</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-chart-line"></i> Performance Testing</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">JMeter</span>
+                                <span class="skill-chip">k6</span>
+                                <span class="skill-chip">Load Testing</span>
+                                <span class="skill-chip">Stress Testing</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-mobile-alt"></i> Testing Types</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">E2E Testing</span>
+                                <span class="skill-chip">API Testing</span>
+                                <span class="skill-chip">Mobile Testing</span>
+                                <span class="skill-chip">Unit Testing</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title"><i class="fas fa-brain"></i> AI &amp; Tools</h3>
+                            <div class="skill-chips">
+                                <span class="skill-chip">GitHub Copilot</span>
+                                <span class="skill-chip">Prompt Engineering</span>
+                                <span class="skill-chip">AI APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiencia">
+                    <div class="section-header">
+                        <h2 class="section-title">Professional Experience</h2>
+                        <p class="section-subtitle">Academic and professional trajectory</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2023 – Present</div>
+                            <div class="timeline-card">
+                                <div class="timeline-title">Software Development Technology Student</div>
+                                <div class="timeline-company">Uniremington</div>
+                                <ul class="timeline-list">
+                                    <li><i class="fas fa-circle"></i> Built 14+ academic and personal projects in test automation, API testing and software development.</li>
+                                    <li><i class="fas fa-circle"></i> Training in Java, JavaScript, TypeScript, SQL, Selenium, Playwright, Cypress, Appium, REST Assured and Karate.</li>
+                                    <li><i class="fas fa-circle"></i> ISTQB Certified Tester – Foundation Level certification.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">08/2023 – 05/2026</div>
+                            <div class="timeline-card">
+                                <div class="timeline-title">Agronomist Engineer</div>
+                                <div class="timeline-company">Uniflor | Rionegro, Antioquia</div>
+                                <ul class="timeline-list">
+                                    <li><i class="fas fa-circle"></i> Planned and executed 10+ projects focused on process improvement and operational optimization, reducing downtime by approximately 15%.</li>
+                                    <li><i class="fas fa-circle"></i> Analyzed production data across 5+ work fronts to support decision-making.</li>
+                                    <li><i class="fas fa-circle"></i> Coordinated and followed up on activities with 3+ technical teams, ensuring on-time delivery of project milestones.</li>
+                                    <li><i class="fas fa-circle"></i> Monitored progress and requirements for 5+ concurrent projects, reporting results to management weekly.</li>
+                                    <li><i class="fas fa-circle"></i> Applied analytical and organizational skills to redesign 4+ internal workflows.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">08/2015 – 07/2016</div>
+                            <div class="timeline-card">
+                                <div class="timeline-title">Administrative Assistant</div>
+                                <div class="timeline-company">Registraduria Nacional | Tumaco, Narino</div>
+                                <ul class="timeline-list">
+                                    <li><i class="fas fa-circle"></i> Managed and organized 500+ documents and citizen records, maintaining accurate filing and retrieval.</li>
+                                    <li><i class="fas fa-circle"></i> Controlled and followed up on 50+ administrative processes per month, ensuring compliance with institutional deadlines.</li>
+                                    <li><i class="fas fa-circle"></i> Provided citizen service and administrative support to 30+ citizens daily.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="portafolio">
+                    <div class="section-header">
+                        <h2 class="section-title">Projects</h2>
+                        <p class="section-subtitle">Test automation portfolio across different frameworks</p>
+                    </div>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-blue"><i class="fab fa-js-square"></i></div>
+                                <div class="project-title">Playwright E2E Automation</div>
+                            </div>
+                            <p class="project-desc">E2E testing with visual regression, accessibility testing and mobile emulation. 30+ test cases.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Playwright</span>
+                                <span class="project-tag">TypeScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/playwright-ecommerce" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/playwright-ecommerce/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-green"><i class="fas fa-code"></i></div>
+                                <div class="project-title">Karate API Testing</div>
+                            </div>
+                            <p class="project-desc">BDD API testing suite with negative testing and schema validation. 25+ test cases.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Karate</span>
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">JUnit 5</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/karate-api-testing" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/karate-api-testing/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-purple"><i class="fas fa-cogs"></i></div>
+                                <div class="project-title">Cypress E2E Automation</div>
+                            </div>
+                            <p class="project-desc">E2E testing with Page Objects, custom commands and API intercepting. 20+ test cases.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Cypress</span>
+                                <span class="project-tag">TypeScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/cypress-ecommerce" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/cypress-ecommerce/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-orange"><i class="fas fa-bolt"></i></div>
+                                <div class="project-title">Selenium Web Automation</div>
+                            </div>
+                            <p class="project-desc">Web automation with POM, Allure Reports and WebDriverManager. 15+ test cases.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Selenium</span>
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">TestNG</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/selenium-web-automation" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/selenium-web-automation/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-teal"><i class="fas fa-plug"></i></div>
+                                <div class="project-title">REST Assured API Testing</div>
+                            </div>
+                            <p class="project-desc">Full CRUD with schema validation and negative test scenarios.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">REST Assured</span>
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">Cucumber</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/api-testing-rest-assured" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/api-testing-rest-assured/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-teal"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="project-title">k6 Performance Testing</div>
+                            </div>
+                            <p class="project-desc">Load, stress, spike and soak testing with custom metrics.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">k6</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/performance-testing-k6" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/performance-testing-k6/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-blue"><i class="fas fa-users"></i></div>
+                                <div class="project-title">CI/CD Test Automation Pipeline</div>
+                            </div>
+                            <p class="project-desc">Multi-stage pipeline with unit, API, UI and performance tests.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">GitHub Actions</span>
+                                <span class="project-tag">CI/CD</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/qa-ci-cd-pipeline" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/qa-ci-cd-pipeline/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon icon-purple"><i class="fas fa-eye"></i></div>
+                                <div class="project-title">Serenity BDD Catalog</div>
+                            </div>
+                            <p class="project-desc">BDD testing with Screenplay pattern and Gherkin in Spanish.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Serenity BDD</span>
+                                <span class="project-tag">Java</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kestupinanmicolta/serenitybdd-catalogo" target="_blank" class="project-link repo"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://kestupinanmicolta.github.io/serenitybdd-catalogo/" target="_blank" class="project-link pages"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="educacion">
+                    <div class="section-header">
+                        <h2 class="section-title">Education</h2>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="education-info">
+                            <div class="education-year">2023 – Present</div>
+                            <h3 class="education-title">Software Development Technology</h3>
+                            <p class="education-school">Uniremington</p>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon"><i class="fas fa-seedling"></i></div>
+                        <div class="education-info">
+                            <div class="education-year">2016 – 2021</div>
+                            <h3 class="education-title">Agronomist Engineering</h3>
+                            <p class="education-school">Universidad de Narino</p>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="education-info">
+                            <div class="education-year">2013 – 2015</div>
+                            <h3 class="education-title">Administrative Assistant Technician</h3>
+                            <p class="education-school">SENA</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="certificaciones">
+                    <div class="section-header">
+                        <h2 class="section-title">Certifications</h2>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon"><i class="fas fa-award"></i></div>
+                        <div class="cert-info">
+                            <h3 class="cert-title"><i class="fas fa-certificate"></i> ISTQB Certified Tester – Foundation Level (CTFL)</h3>
+                            <p class="cert-desc">International certification in software testing fundamentals, covering testing processes, techniques, test management and quality best practices in software development.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="idiomas">
+                    <div class="section-header">
+                        <h2 class="section-title">Languages</h2>
+                    </div>
+                    <div class="lang-chips">
+                        <span class="lang-chip"><strong>Spanish:</strong> Native</span>
+                        <span class="lang-chip"><strong>English:</strong> B1 – Intermediate (conversational, actively improving towards B2)</span>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Karen Paola Estupinan Micolta — Software Development Technology Student</p>
+            <p>Ready to collaborate? <a href="https://www.linkedin.com/in/karen-paola-estupinan-micolta/" target="_blank">Contact me on LinkedIn</a></p>
+        </div>
+    </footer>
 
     <script>
-        // ===== Tabs =====
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const contents = document.querySelectorAll('.category-content');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                contents.forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-                const cat = this.dataset.category;
-                document.getElementById('cat-' + cat).classList.add('active');
-            });
-        });
-
-        // ===== PDF Export =====
-        document.getElementById('exportPdf').addEventListener('click', function() {
-            const cv = document.getElementById('cv');
-            const portfolio = document.querySelector('.portfolio-wrapper');
-
-            portfolio.style.display = 'none';
-            cv.style.borderRadius = '0';
-            cv.style.boxShadow = 'none';
-
-            html2pdf().set({
-                margin: 0,
-                filename: 'CV_Karen_Paola_Estupinan.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, logging: false, letterRendering: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-            }).from(cv).save().then(function() {
-                portfolio.style.display = '';
-                cv.style.borderRadius = '';
-                cv.style.boxShadow = '';
-            });
-        });
-
-        // ===== Projects data =====
-        const projectsData = [{
-            title: 'Karate API Testing',
-            tech: 'Java + Karate + JUnit 5',
-            icon: 'api',
-            iconClass: 'fa-bolt',
-            tags: ['api', 'bdd'],
-            desc: 'Suite BDD de testing API con tests negativos, validación de schema y múltiples endpoints REST.',
-            metrics: ['<i class="fas fa-vial"></i> <strong>25+</strong> tests', '<i class="fas fa-code-branch"></i> CRUD completo'],
-            repo: 'https://github.com/kestupinanmicolta/karate-api-testing',
-            report: 'https://kestupinanmicolta.github.io/karate-api-testing/'
-        }, {
-            title: 'Playwright E2E',
-            tech: 'TypeScript + Playwright',
-            icon: 'ui',
-            iconClass: 'fa-theater-masks',
-            tags: ['ui', 'e2e'],
-            desc: 'Testing E2E con visual regression, accessibility testing y mobile emulation.',
-            metrics: ['<i class="fas fa-vial"></i> <strong>30+</strong> tests', '<i class="fas fa-eye"></i> Visual'],
-            repo: 'https://github.com/kestupinanmicolta/playwright-ecommerce',
-            report: 'https://kestupinanmicolta.github.io/playwright-ecommerce/'
-        }, {
-            title: 'Cypress E2E',
-            tech: 'TypeScript + Cypress',
-            icon: 'ui',
-            iconClass: 'fa-circle',
-            tags: ['ui', 'e2e'],
-            desc: 'Testing E2E con Page Objects, custom commands y API intercepting.',
-            metrics: ['<i class="fas fa-vial"></i> <strong>20+</strong> tests', '<i class="fas fa-plug"></i> Intercepts'],
-            repo: 'https://github.com/kestupinanmicolta/cypress-ecommerce',
-            report: 'https://kestupinanmicolta.github.io/cypress-ecommerce/'
-        }, {
-            title: 'Selenium Automation',
-            tech: 'Java + Selenium + TestNG',
-            icon: 'ui',
-            iconClass: 'fa-check-double',
-            tags: ['ui', 'pom'],
-            desc: 'Automatización web con POM, Allure Reports y WebDriverManager.',
-            metrics: ['<i class="fas fa-vial"></i> <strong>15+</strong> tests', '<i class="fas fa-file-alt"></i> Allure'],
-            repo: 'https://github.com/kestupinanmicolta/selenium-web-automation',
-            report: 'https://kestupinanmicolta.github.io/selenium-web-automation/'
-        }, {
-            title: 'REST Assured API',
-            tech: 'Java + REST Assured + Cucumber',
-            icon: 'api',
-            iconClass: 'fa-plug',
-            tags: ['api', 'bdd'],
-            desc: 'CRUD completo con validación de schema y tests negativos.',
-            metrics: ['<i class="fas fa-vial"></i> <strong>20+</strong> tests', '<i class="fas fa-code-branch"></i> CRUD'],
-            repo: 'https://github.com/kestupinanmicolta/api-testing-rest-assured',
-            report: 'https://kestupinanmicolta.github.io/api-testing-rest-assured/'
-        }, {
-            title: 'SerenityBDD Catálogo',
-            tech: 'Java + Serenity + Cucumber',
-            icon: 'api',
-            iconClass: 'fa-chalkboard',
-            tags: ['api', 'bdd'],
-            desc: 'Testing BDD con Screenplay pattern, Gherkin en español y reportes detallados.',
-            metrics: ['<i class="fas fa-vial"></i> <strong>18+</strong> tests', '<i class="fas fa-file-alt"></i> Screenplay'],
-            repo: 'https://github.com/kestupinanmicolta/serenitybdd-catalogo',
-            report: 'https://kestupinanmicolta.github.io/serenitybdd-catalogo/'
-        }, {
-            title: 'k6 Performance',
-            tech: 'JavaScript + k6',
-            icon: 'perf',
-            iconClass: 'fa-chart-line',
-            tags: ['perf'],
-            desc: 'Load test, stress test, spike test y soak test con métricas personalizadas.',
-            metrics: ['<i class="fas fa-chart-line"></i> 4 tipos', '<i class="fas fa-tachometer-alt"></i> Metrics'],
-            repo: 'https://github.com/kestupinanmicolta/performance-testing-k6',
-            report: 'https://kestupinanmicolta.github.io/performance-testing-k6/'
-        }, {
-            title: 'JMeter Performance',
-            tech: 'Apache JMeter',
-            icon: 'perf',
-            iconClass: 'fa-tachometer-alt',
-            tags: ['perf'],
-            desc: 'Test plans para load, stress y spike testing con assertions automáticos.',
-            metrics: ['<i class="fas fa-chart-line"></i> 3 tipos', '<i class="fas fa-file-code"></i> JMX'],
-            repo: 'https://github.com/kestupinanmicolta/performance-testing-jmeter',
-            report: 'https://kestupinanmicolta.github.io/performance-testing-jmeter/'
-        }, {
-            title: 'Appium Mobile',
-            tech: 'Java + Appium + TestNG',
-            icon: 'mobile',
-            iconClass: 'fa-mobile-alt',
-            tags: ['mobile', 'pom'],
-            desc: 'Testing móvil para Android con Page Objects y Allure Reports.',
-            metrics: ['<i class="fas fa-vial"></i> <strong>12+</strong> tests', '<i class="fab fa-android"></i> Android'],
-            repo: 'https://github.com/kestupinanmicolta/appium-mobile-testing',
-            report: 'https://kestupinanmicolta.github.io/appium-mobile-testing/'
-        }, {
-            title: 'FlowersApp',
-            tech: 'Java + Android SDK + MVVM',
-            icon: 'mobile',
-            iconClass: 'fa-mobile-alt',
-            tags: ['mobile', 'e2e'],
-            desc: 'App Android de e-commerce con arquitectura MVVM y testing integrado.',
-            metrics: ['<i class="fas fa-mobile-alt"></i> App nativa', '<i class="fas fa-layer-group"></i> MVVM'],
-            repo: 'https://github.com/kestupinanmicolta/FlowersApp',
-            report: null
-        }, {
-            title: 'CI/CD Pipeline',
-            tech: 'GitHub Actions',
-            icon: 'cicd',
-            iconClass: 'fab fa-github',
-            tags: ['cicd'],
-            desc: 'Pipeline completo con unit tests, API tests, UI tests y performance tests.',
-            metrics: ['<i class="fas fa-cogs"></i> Automated', '<i class="fas fa-code-branch"></i> Multi-stage'],
-            repo: 'https://github.com/kestupinanmicolta/qa-ci-cd-pipeline',
-            report: 'https://kestupinanmicolta.github.io/qa-ci-cd-pipeline/'
-        }, {
-            title: 'Docker Testing',
-            tech: 'Docker + Playwright + Newman',
-            icon: 'devops',
-            iconClass: 'fab fa-docker',
-            tags: ['cicd'],
-            desc: 'Entorno de testing containerizado con múltiples servicios aislados.',
-            metrics: ['<i class="fab fa-docker"></i> 5 servicios', '<i class="fas fa-box"></i> Containers'],
-            repo: 'https://github.com/kestupinanmicolta/docker-testing',
-            report: null
-        }, {
-            title: 'DB Testing',
-            tech: 'Java + JDBC + H2 + TestNG',
-            icon: 'db',
-            iconClass: 'fas fa-database',
-            tags: ['db', 'bdd'],
-            desc: 'Testing de integridad de datos, CRUD operations y constraints con Allure Reports.',
-            metrics: ['<i class="fas fa-vial"></i> <strong>17</strong> tests', '<i class="fas fa-database"></i> H2'],
-            repo: 'https://github.com/kestupinanmicolta/db-testing',
-            report: null
-        }, {
-            title: 'HotelReact',
-            tech: 'React 19 + React Router',
-            icon: 'ui',
-            iconClass: 'fa-hotel',
-            tags: ['ui', 'e2e'],
-            desc: 'SPA con Context API, CSS Modules y React Testing Library.',
-            metrics: ['<i class="fas fa-code"></i> React 19', '<i class="fas fa-vial"></i> RTL'],
-            repo: 'https://github.com/kestupinanmicolta/HotelReact',
-            report: null
-        }];
-
-        // ===== Create card function =====
-        function createCard(project) {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-
-            const header = document.createElement('div');
-            header.className = 'card-header';
-            header.innerHTML = `
-                <div class="card-icon ${project.icon}"><i class="${project.iconClass}"></i></div>
-                <div class="card-info">
-                    <div class="title">${project.title}</div>
-                    <div class="tech">${project.tech}</div>
-                    <div class="card-tags">
-                        ${project.tags.map(t => `<span class="card-tag ${t}">${t.toUpperCase()}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-            card.appendChild(header);
-
-            const body = document.createElement('div');
-            body.className = 'card-body';
-            body.innerHTML = `
-                <div class="desc">${project.desc}</div>
-                <div class="card-metrics">
-                    ${project.metrics.map(m => `<span class="metric">${m}</span>`).join('')}
-                </div>
-            `;
-            card.appendChild(body);
-
-            const footer = document.createElement('div');
-            footer.className = 'card-footer';
-            let btns = `<a href="${project.repo}" target="_blank" class="card-btn repo"><i class="fab fa-github"></i> Código</a>`;
-            if (project.report) {
-                btns += `<a href="${project.report}" target="_blank" class="card-btn report"><i class="fas fa-chart-bar"></i> Reporte</a>`;
+        function setLang(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('english');
+                document.getElementById('btnEn').classList.add('active');
+                document.getElementById('btnEs').classList.remove('active');
+            } else {
+                document.body.classList.remove('english');
+                document.getElementById('btnEs').classList.add('active');
+                document.getElementById('btnEn').classList.remove('active');
             }
-            footer.innerHTML = btns;
-            card.appendChild(footer);
-
-            return card;
         }
 
-        // ===== Populate containers =====
-        const containerAll = document.getElementById('cat-all');
-        const containerApi = document.getElementById('cat-api');
-        const containerUi = document.getElementById('cat-ui');
-        const containerMobile = document.getElementById('cat-mobile');
-        const containerPerf = document.getElementById('cat-perf');
-        const containerCicd = document.getElementById('cat-cicd');
-        const containerDb = document.getElementById('cat-db');
-
-        containerAll.innerHTML = '';
-        containerApi.innerHTML = '';
-        containerUi.innerHTML = '';
-        containerMobile.innerHTML = '';
-        containerPerf.innerHTML = '';
-        containerCicd.innerHTML = '';
-        containerDb.innerHTML = '';
-
-        const catMap = {
-            api: containerApi,
-            ui: containerUi,
-            mobile: containerMobile,
-            perf: containerPerf,
-            cicd: containerCicd,
-            db: containerDb
-        };
-
-        projectsData.forEach(p => {
-            const card = createCard(p);
-            containerAll.appendChild(card.cloneNode(true));
-            p.tags.forEach(tag => {
-                if (catMap[tag]) {
-                    catMap[tag].appendChild(card.cloneNode(true));
-                }
-            });
-        });
+        function downloadPdf(lang) {
+            var url = lang === 'es'
+                ? 'Karen_Estupinan_CV_Es.pdf'
+                : 'Karen_Estupinan_CV_En.pdf';
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = url;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
     </script>
 </body>
 </html>
